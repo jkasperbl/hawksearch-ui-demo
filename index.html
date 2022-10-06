@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Hawksearch Demo (default)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style type="text/css">
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+            }
+
+            .layout-container {
+                margin: 0 auto;
+                min-width: 340px;
+                max-width: 1280px;
+            }
+        </style>
+        <script src="dist/handlebars-ui.js" defer></script>
+        <script type="text/javascript">
+            var Hawksearch = Hawksearch || {};
+
+            Hawksearch.config = {
+                clientId: 'f51060e1c38446f0bacdf283390c37e8',
+                urlPrefixes: {
+                    assets: 'http://dev.hawksearch.net',
+                    content: 'https://preview-dev.hawksearch.net/elasticdemo'
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <div class="layout-container">
+            <h1>Hawksearch Demo (default)</h1>
+            <hawksearch-search></hawksearch-search>
+            <hawksearch-results></hawksearch-results>
+        </div>
+    </body>
+</html>
