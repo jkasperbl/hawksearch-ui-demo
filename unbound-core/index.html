@@ -27,6 +27,18 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="Script%20Library/front-end/frontEnd.js"></script> 
         <script src='//platform-api.sharethis.com/js/sharethis.js#property=5a6a1b6f0b4e3b0013705164&product=custom-share-buttons' async='async'></script>
+        <script src="https://www.unpkg.com/@bridgeline-digital/hawksearch-handlebars-ui@1/dist/hawksearch-handlebars-ui.js" defer></script>
+        <script type="text/javascript">
+            var Hawksearch = Hawksearch || {};
+    
+            Hawksearch.config = {
+              clientId: "f51060e1c38446f0bacdf283390c37e8",
+              urlPrefixes: {
+                assets: "//dev.hawksearch.net",
+                content: "//preview-dev.hawksearch.net/elasticdemo",
+              }
+            };
+          </script>
     </head>
     <body>
         <!--The form below is the default form that .NET/iAPPS projects will have wrapping the content. Do not remove!
@@ -196,7 +208,8 @@
                     below and place all your content in there -->
                 <main>
                     <div class="section h-softLgEnds">
-                        <div class="contained">
+                        <hawksearch-results></hawksearch-results>
+                        <div class="contained" style="display: none;">
                             <div class="row">
                                 <div class="column lg-16">
                                     <h1 class="searchBox-heading">Search Results for: <span>search terms</span></h1>
