@@ -1,0 +1,24 @@
+/* NOPHATBOTTOM
+========================================================================== */
+/*
+  * Strip the bottom margin off of the last element in containers with all-around padding so there is
+  * no extra space at the bottom
+  *
+  * @include noPhatBottom;
+  * @extend %noPhatBottom;
+  *
+  */
+
+//mixin for use in media queries or anyplace else extending doesnt make sense
+@mixin noPhatBottom {
+    & > *:last-child,
+    & > *:last-child > *:last-child,
+    & > *:last-child > *:last-child > *:last-child {
+      margin-bottom: 0 !important;
+    }
+}
+
+//for extending
+%noPhatBottom {
+    @include noPhatBottom;
+}

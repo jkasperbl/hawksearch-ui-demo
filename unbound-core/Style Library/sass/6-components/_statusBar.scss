@@ -1,0 +1,49 @@
+/* STATUS BAR
+========================================================================== */
+ul.status-bar {
+	@extend %clearfix;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-bottom: $spacingLg;
+	padding: 0;
+	font-family: $fontHighlight;
+	li {
+		@include font-size(14px);
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		list-style: none;
+		text-align: center;
+		border-bottom: 3px solid $colorBorder;
+		position: relative;
+		padding-bottom:$spacingSm;
+		margin: 0;
+		/* grey out finished steps */
+		&.done {
+			border-color:$colorBrandSecondary;
+			a {
+				color: $colorBrandSecondary;
+			}
+		}
+		
+		/* highlight the current step */
+		&.current {
+			color: $colorHighlight;
+			border-color: $colorBrandSecondary;
+			/* add the pointer */
+			&:after {
+				content:'';
+				width:0;
+				height:0;
+				border-top:7px solid $colorBrandSecondary;
+				border-right:7px solid transparent;
+				border-left:7px solid transparent;
+				position:absolute;
+				left:50%;
+				margin-left:-5px;
+				bottom:-9px;
+			}
+		}
+	}
+}

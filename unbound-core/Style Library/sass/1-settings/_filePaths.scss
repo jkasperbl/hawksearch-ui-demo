@@ -1,0 +1,40 @@
+/* FILE PATHS
+========================================================================== */
+
+/*
+* The basic folder structure for images, fonts, etc. may be modified in the
+* case that a client utilizes multi-site. With multi-site, directories will need
+* to be created for each site. To ease this transition we define the paths
+* for images and fonts as variable here.
+*
+* !!! Communicate with your development team as to whether a build will need to
+* utilize multi-site functionality now or in the future to prevent breakage or
+* backend folks fiddling with the CSS.
+*/
+
+/*
+* Path to images the client will not be editing (relative from stylesheet)
+*/
+$pathTemplateImages: '/Image%20Library/template-images/'!default;
+/*
+*  USAGE: url('#{$pathTemplateImages}background.png');
+*/
+
+/*
+* Path to images the client may edit (relative from stylesheet)
+*/
+$pathContentImages: '/Image%20Library/content-images/'!default;
+/*
+*  url('#{$pathContentImages}hero-images/hero.jpg');
+*/
+
+/*
+* Path to web fonts (relative from stylesheet)
+*/
+$pathFonts: '../fonts/'!default;
+/*
+*  url('#{$pathFonts}Roboto-Bold.eot');
+*/
+
+
+

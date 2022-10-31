@@ -1,0 +1,64 @@
+/* SECTION
+========================================================================== */
+
+%section {
+    @extend %guttered;
+    @extend %noPhatBottom;
+    clear:both;
+
+    padding-top: $spacingLg;
+    padding-bottom: $spacingLg;
+
+    // Parallax is adding a scroll bar to sections
+    overflow:hidden;
+
+    &--borderEnds {
+        position: relative;
+        border-top:1px solid $colorBorder;
+        border-bottom:1px solid $colorBorder;
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 50%;
+
+            width: 50%;
+            height: 1px;
+            margin-left: -25%;
+
+            content: '';
+
+            background: $colorGreyLight;
+        }
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+
+            width: 50%;
+            height: 1px;
+            margin-left: -25%;
+
+            content: '';
+
+            background: $colorGreyLight;
+        }
+    }
+}
+.section {
+    @extend %section;
+
+    &--contrast {
+        color: color-contrast($colorAccent);
+        background-color: $colorAccent;
+    }
+    &--contrastLight {
+        color: color-contrast($colorGreyLightest);
+        background-color: $colorGreyLightest;
+        .btn {color:$colorWhite;}
+    }
+    &--contrastDark {
+        color: color-contrast($colorGreyDarkest);
+        background-color: $colorGreyDarkest;
+    }
+}

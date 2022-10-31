@@ -1,0 +1,39 @@
+/* TOGGLE LINKS
+========================================================================== */
+
+/*
+* Basic show and hide links
+*
+* These styles are applied to the basic show and hide script functionality defined in
+* Script Library/front-end/toggleLink.js
+*
+* <a class="toggleLink">Show more</a>
+* <div class="toggleLinkTarget is-hidden">Initially hidden content</div>
+*/
+
+.toggleLink {
+    cursor: pointer;
+}
+.toggleLinkTarget {
+    @include transition(all .2s ease-in-out);
+
+    position: static;
+    //add z-index to fix where transformed elements get screwy z-index
+    z-index: 1;
+
+    -webkit-transform: scale(1,1); /* Chrome, Safari, Opera */
+        -ms-transform: scale(1,1); /* IE 9 */
+            transform: scale(1,1); /* Standard syntax */
+    -webkit-transform-origin: top; /* Chrome, Safari, Opera */
+        -ms-transform-origin: top; /* IE 9 */
+            transform-origin: top;
+    &.is-hidden {
+        position: absolute;
+
+        margin: 0;
+
+        -webkit-transform: scale(1,0); /* Chrome, Safari, Opera */
+            -ms-transform: scale(1,0); /* IE 9 */
+                transform: scale(1,0); /* Standard syntax */
+    }
+}

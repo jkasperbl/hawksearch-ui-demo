@@ -1,0 +1,37 @@
+/* LISTS
+========================================================================== */
+
+/*
+* Remove vertical spacing from nested lists
+*/
+ul,
+ol {
+    padding: 0 0 0 $spacingBase;
+}
+li {
+    > ul, > ol {
+        margin-bottom: 0;
+    }
+}
+
+
+/*
+* Definition list
+*/
+dt,
+dd {
+    display: inline;
+
+    margin: 0;
+}
+dt {
+    font-family: $fontHighlight;
+
+    &:after {
+        content: ': ';
+    }
+}
+dd:after {
+    content: '\A';
+    white-space: pre;
+}

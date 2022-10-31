@@ -1,0 +1,100 @@
+/* OPTIONS NAV
+========================================================================== */
+
+/*
+* Not necessarily a true nav, as it is a horizontal list of links that 
+* fall into a list on mobile so that all options are available to the user
+* no matter what the screen size.
+* Can accept spans (for icon indicators) and links
+ <nav class="navOptions">
+		<span class="icon-cog"></span>
+		<a href="">...</a>
+ </nav>
+ */
+
+.navOptions {
+    @extend %flexbox;
+
+    @include flex-wrap(wrap);
+
+    margin-bottom: $spacingBase;
+
+    border: 1px solid $colorBorder;
+    border-radius: 2px;
+    background:$colorWhite;
+
+    > a, > span {
+        @include font-size(14px);
+        @include flex(0 0 100%);
+
+        padding: $spacingXSm $spacingSm;
+
+        white-space: nowrap;
+
+        border-top: 1px solid $colorBorder;
+
+        &:first-child {
+            border-width: 0;
+        }
+    }
+    > span {
+        color: $colorGrey;
+    }
+    > a {
+        &.is-selected,
+        &:hover {
+            text-decoration: none;
+
+            color: $colorWhite;
+            background: $colorGreyLight;
+
+            + a {
+                border-left-color: $colorWhite;
+            }
+        }
+    }
+    span {
+        background: $colorGreyLightest;
+    }
+}
+
+.navOptions--sm {
+    > a, > span {
+        @include font-size(13px);
+
+        padding: $spacingXSm/2 $spacingSm;
+    }
+}
+
+@mixin navOptions {
+    @include inline-flexbox;
+    @include flex-wrap(nowrap);
+
+    > a, > span {
+        @include flex(1 0 auto);
+
+        border-top-width: 0;
+        border-left: 1px solid $colorBorder;
+    }
+}
+
+@include mq(xsm) {
+    .navOptions--XSmHorizontal {
+        @include navOptions;
+    }
+}
+@include mq(sm) {
+    .navOptions--smHorizontal {
+        @include navOptions;
+    }
+}
+@include mq(med) {
+    .navOptions--medHorizontal {
+        @include navOptions;
+    }
+}
+@include mq(lg) {
+    .navOptions--lgHorizontal {
+        @include navOptions;
+    }
+}

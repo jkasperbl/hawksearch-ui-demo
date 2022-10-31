@@ -1,0 +1,167 @@
+/* MAIN FOOTER
+========================================================================== */
+
+.footerMain {
+    @include flex(0 0 auto);
+
+    color: $colorWhite;
+    .logoMain img {
+        // Also controlled in HeaderMain due to fixed JS classes
+        max-height:60px !important;
+        padding:0;
+    }    
+}
+.footermain-top {
+    @extend %section;
+
+    background: $colorBrandSecondaryDark;
+    a {color:$colorWhite;}
+    @include themify(locations){
+        padding:$spacingSm 0 $spacingBase 0 !important;
+    }
+}
+.footermain-topInner {
+    @extend %contained;
+    @include themify(locations){
+        .footerMain-topRight, .footerMain-topLeft {
+            padding:0 $spacingBase;
+        }
+        @include mq(med) {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            .footerMain-topLeft {margin-right:$spacingLg;padding:0;}
+            .footerMain-topRight {
+                @include noPhatBottom;
+                max-width:775px;
+                padding:0;
+            }
+            .logoMain {text-align:left;}
+        }
+    }
+}
+.footerMain-heading {
+    @extend .h-pushSmBottom;
+
+    @include font-size($h5Size);
+}
+.footerMain-topNav ul {
+    @include font-size(14px);
+
+    padding: 0;
+
+    list-style: none;
+
+    a {
+        text-decoration: none;
+
+        color: $colorWhite;
+        &:hover, &:focus {
+            text-decoration:underline;
+        }
+    }
+}
+.footerMain-topNav--socialNav ul li {
+    display: inline-block;
+
+    margin-right: $spacingXSm;
+
+    &:last-child {
+        margin-right: 0;
+    }
+    a {
+        display: block;
+
+        padding: $spacingXSm;
+
+        color: $colorWhite;
+    }
+}
+.footerMainSocialLink {
+    @include font-size(18px);
+
+    padding: 0;
+
+    list-style: none;
+
+    text-decoration: none;
+
+    &:before {
+        @extend %iconStyle;
+
+        margin: 0;
+    }
+    &--facebook {
+        @extend .icon-facebook;
+    }
+    &--twitter {
+        @extend .icon-twitter;
+    }
+    &--youTube {
+        @extend .icon-youtube;
+    }
+    &--linkedin {
+        @extend .icon-linkedin;
+    }
+    &--rss {
+        @extend .icon-rss;
+    }
+    &--googlePlus {
+        @extend .icon-googleplus;
+    }
+    &--skype {
+        @extend .icon-skype;
+    }
+    &--flickr {
+        @extend .icon-flickr;
+    }
+    &--instagram {
+        @extend .icon-instagram;
+    }
+    &--pinterest {
+        @extend .icon-pinterest;
+    }
+}
+.footermain-bottom {
+    @extend %guttered;
+
+    padding-top: $spacingSm;
+    padding-bottom: $spacingSm;
+
+    background: $colorGreyDarkest;
+}
+.footermain-bottomInner {
+    @extend %contained;
+    @extend .sideToSideMed;
+
+    @include font-size(13px);
+}
+.footerMain-bottomInfo, .footerMain-info {
+    @include font-size(13px);
+    @include mq(med) {
+        @include noPhatBottom;
+    }
+    @include themify(locations) {
+        margin-top:$spacingSm;
+        line-height:1.2;
+        address {margin-bottom:$spacingSm;}
+    }
+}
+.footerMain-bottomNav ul {
+    @extend %flexbox;
+
+    padding: 0;
+
+    list-style: none;
+
+    li {
+        margin: $spacingXSm $spacingSm;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover, &:focus {
+            text-decoration:underline;
+        }        
+    }
+}

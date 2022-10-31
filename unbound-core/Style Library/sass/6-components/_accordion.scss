@@ -1,0 +1,124 @@
+
+/* ACCORDION
+========================================================================== */
+
+.accordion {
+    margin-bottom: $spacingBase;
+    padding: 0;
+
+    list-style: none;
+
+    border: 2px solid $colorBorder;
+    background-color: $colorWhite;
+
+    > li {
+        @extend %flexbox;
+
+        @include flex-wrap(wrap);
+
+        > span:first-of-type {
+            @extend %flexbox;
+
+            @include flex(1 1 auto);
+            @include font-size(13px);
+            @include align-items(center);
+
+            position: relative;
+
+            padding: $spacingSm;
+
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1.4;
+
+            //define the color so it doesnt change if the container has a dark background
+            color: $colorText;
+            border-bottom: 2px solid $colorBorder;
+
+            &:before {
+                @include flex(0 0 50px);
+                @include font-size(16px);
+
+                margin: 0 $spacingSm 0 (-$spacingSm);
+
+                line-height: inherit;
+
+                border-right: 2px solid $colorBorder;
+            }
+            &:after {
+                @extend %iconStyle;
+
+                width: auto;
+                margin-right: 0;
+                margin-left: auto;
+                padding: 0 $spacingSm;
+
+                content: '\2b';
+                line-height: 1.4;
+            }
+        }
+        &:hover {
+            > span:first-of-type {
+                color: $colorHighlight;
+            }
+        }
+        &.is-active {
+            > span:first-of-type {
+                margin-bottom: 0;
+
+                color: $colorHighlight;
+                border-width: 0;
+
+                &:after {
+                    content: '\2d';
+                }
+            }
+        }
+        &:last-child > span:first-of-type,
+        &:last-child > .accordion-content {
+            border-bottom-width: 0;
+        }
+    }
+}
+.accordion-content {
+    @extend %noPhatBottom;
+
+    @include transition(all .2s ease-in-out);
+    @include flex(0 0 100%);
+    @include font-size(14px);
+
+    overflow: hidden;
+
+    max-height: 0;
+
+    -webkit-transform: scale(1, 0);
+        -ms-transform: scale(1, 0);
+            transform: scale(1, 0);
+    -webkit-transform-origin: top center;
+        -ms-transform-origin: top center;
+            transform-origin: top center;
+
+    color: $colorGrey;
+    // MUST HAVE FIX there is an error in Unbound Admin with disassociates images/URLs with accordion figure videos
+    .figure--video {display:none;}        
+    p { margin-bottom:$spacingSm;}
+    ul li {
+        list-style-type:disc;
+        li {list-style-type:circle;}
+    }
+}
+.is-active .accordion-content {
+    max-height: none;
+    padding-right: $spacingSm;
+    padding-bottom: $spacingSm;
+    padding-left: $spacingSm;
+
+    -webkit-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+            transform: scale(1, 1);
+
+    border-bottom: 2px solid $colorBorder;
+    .figure--video {display:block;}    
+    
+}

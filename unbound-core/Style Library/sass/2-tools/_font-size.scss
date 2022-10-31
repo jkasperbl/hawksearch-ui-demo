@@ -1,0 +1,22 @@
+/* FONT-SIZE
+========================================================================== */
+/*
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ *
+ * Basically what this does is add font size (in rems) and if no line-height is declared
+ * in the style you are creating, this mixin will create one that matches the
+ * line-height applied to the body.
+ */
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / $fontSizeBase)*1rem;
+    @if $line-height == true{
+        line-height:ceil($font-size / $lineHeight) * ($lineHeight / $font-size);
+    }
+}

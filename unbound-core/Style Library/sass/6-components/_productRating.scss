@@ -1,0 +1,12 @@
+/* PRODUCT TOOLS
+========================================================================== */
+.productRating {
+    @include font-size(14px);
+
+    margin-bottom: $spacingBase;
+
+    border-bottom: 1px solid $colorBorder;
+}
+.productRating-infoList {
+    margin-bottom: $spacingSm;
+}

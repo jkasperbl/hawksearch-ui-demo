@@ -1,0 +1,46 @@
+/* FIGURE
+========================================================================== */
+
+.figure--left {
+	float: left;
+	margin: $lineHeight/4 4% $spacingBase 0;
+	max-width: 35%;
+}
+.figure--right {
+	float: right;
+	margin: $lineHeight/4 0 $spacingBase 4%;
+	max-width: 35%;
+}
+
+@include mq(med) {
+	.figure--leftMed {
+		float: left;
+		margin: $lineHeight/4 4% $spacingBase 0;
+		max-width: 35%;
+	}
+	.figure--rightMed {
+		float: right;
+		margin: $lineHeight/4 0 $spacingBase 4%;
+		max-width: 35%;
+	}
+}
+
+/* 
+* figures when embedding video. 
+*
+* <figure class="video">
+* <iframe width="560" height="315" frameborder="0" allowfullscreen="" src="http://www.youtube.com/embed/Sx_QTgx4nAI">
+* </iframe></figure>
+*/
+.figure--video {
+	position: relative;
+	padding-top: 50%;
+	height: 0;
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

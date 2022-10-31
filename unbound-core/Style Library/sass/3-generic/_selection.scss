@@ -1,0 +1,13 @@
+/* SELECTION
+========================================================================== */
+  /* styles when user selects elements */
+::-moz-selection {
+    background: $colorGrey;
+    text-shadow: none;
+    color: $colorWhite;
+}
+::selection {
+    background: $colorGrey;
+    text-shadow: none;
+    color: $colorWhite;
+}

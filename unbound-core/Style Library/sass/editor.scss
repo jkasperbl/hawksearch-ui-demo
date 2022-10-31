@@ -1,0 +1,17 @@
+/* EDITOR.CSS
+========================================================================== */
+
+/*
+* The $desktopOnly variable is set to false as a default in Style Library/sass/base/mixins/_media-queries.scss
+* We override it here by setting it to true so when the css compiles, all media queries
+* entered using the media query mixin are stripped out so everything cascades into the
+* desktop styles.
+*/
+
+$desktopOnly: true;
+
+/*
+* Now pull in main.scss
+*/
+
+@import "main.scss";

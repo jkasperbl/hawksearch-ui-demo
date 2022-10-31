@@ -1,0 +1,48 @@
+/* MAIN HEADER
+========================================================================== */
+
+.searchToggle {
+    @extend %flexbox;
+
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex(1 0 auto);
+
+    position: relative;
+
+    padding: 0 $spacingXSm;
+
+    cursor: pointer;
+
+    border-left: 1px solid $colorGreyLighter;
+
+    @include mq(lg) {
+        //for IE can't use flex short hand: @include flex(0);
+        @include flex(0 0 auto);
+
+        border-width: 0;
+
+        &:before {
+            @include font-size(18px);
+
+            width: auto;
+            padding-left: $spacingSm;
+
+            // border-left: 1px solid $colorGreyLighter;
+        }
+    }
+
+    &:hover {
+        color: $colorHighlight;
+    }
+    &:before {
+        @extend %iconStyle;
+
+        @include font-size(20px);
+
+        margin: 0;
+    }
+}
+.searchToggle {
+    @extend .icon-search;
+}

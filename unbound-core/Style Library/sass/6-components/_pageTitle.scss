@@ -1,0 +1,80 @@
+/* FEATURE BLOCK
+========================================================================== */
+
+.pageTitle {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+
+    &[class*='pageTitle--textBackground'] {
+        .pageTitleCopy {
+            padding: $spacingSm;
+        }
+    }
+    &.pageTitle--fixedBackground {
+        background-attachment: fixed;
+    }    
+}
+.pageTitleCopy {
+    @extend %noPhatBottom;
+
+    text-align: center;
+    line-height: 1.2;
+
+    @include mq(med) {
+        display: inline-block;
+
+        max-width: 60%;
+    }
+}
+.pageTitleCopy-heading {
+    @extend .h-pushXSmBottom;
+
+    @include responsive-font(8vw, $h3Size, $h1Size, $h2Size);
+
+    text-transform: uppercase;
+}
+.pageTitleCopy-SubHeading {
+    @include responsive-font(6vw, 16px, 18px, 18px);
+
+    font-family: $fontDefault;
+    font-weight: inherit;
+}
+.pageTitle--textLight {
+    color: $colorWhite;
+}
+.pageTitle--textBackgroundLight {
+    .pageTitleCopy {
+        color: color-contrast(rgba($colorWhite, .8));
+        background: rgba($colorWhite, .8);
+    }
+}
+.pageTitle--textBackgroundDark {
+    color: $colorWhite;
+
+    .pageTitleCopy {
+        color: color-contrast(rgba($colorBlack, .8));
+        background: rgba($colorBlack, .8);
+    }
+}
+
+
+@include mq(med) {
+    .pageTitle--left,
+    .pageTitle--left .pageTitleCopy {
+        text-align: left;
+    }
+    .pageTitle--right,
+    .pageTitle--right .pageTitleCopy {
+        text-align: right;
+    }
+}
+
+// background attachment fixed is an issue for iOS, so remove for these devices
+
+@supports (-webkit-overflow-scrolling: touch) {
+    .pageTitle.pageTitle--fixedBackground {
+        background-attachment: scroll;
+    }
+}

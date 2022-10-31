@@ -1,0 +1,15 @@
+/* <ASIDE>
+========================================================================== */
+
+aside {
+    float: none;
+
+    margin-bottom: $lineHeight;
+    padding: $spacingSm $spacingSm $spacingSm $spacingBase;
+
+    border-left: 3px solid $colorGreyLighter;
+    background: $colorGreyLightest;
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+}

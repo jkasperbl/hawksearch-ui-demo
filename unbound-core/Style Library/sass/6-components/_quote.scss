@@ -1,0 +1,19 @@
+/* QUOTES
+========================================================================== */
+
+@include mq(med) {
+    blockquote {
+        &.blockquote--right {
+            float: right;
+
+            max-width: 35%;
+            margin: .35em 0 $spacingBase $spacingBase;
+        }
+        &.blockquote--left {
+            float: left;
+
+            max-width: 35%;
+            margin: .35em $spacingBase $spacingBase 0;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/*BLOG ITEM
+=======================================================================================*/
+
+.blogItem {
+	@extend %noPhatBottom;
+	@extend %clearfix;
+	border-bottom:1px solid $colorGreyLight;
+	padding-bottom:$spacingBase;
+	margin-bottom:$spacingBase;
+}
+.blogItem-heading {
+	@include font-size(32px);
+	margin-bottom:0;
+	a {
+		text-decoration:none;
+	}
+}
+.blogItem-blurb {
+	display:none;
+}
+.blogItem-figure {
+	text-align:left;
+	margin-bottom:$spacingSm;
+}
+ @include mq(med) {
+ 	.blogItem-body {
+ 		overflow:hidden;
+ 	}
+ 	.blogItem-figure {
+ 		float:right;
+ 		margin-left: $spacingBase;
+ 		margin-bottom:0;
+ 		max-width: 35%;
+ 		text-align:center;
+ 	}
+	.blogItem-blurb {
+		display:block;
+	}
+ }

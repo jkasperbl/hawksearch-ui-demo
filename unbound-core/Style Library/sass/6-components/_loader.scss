@@ -1,0 +1,84 @@
+/* LOADER
+========================================================================== */
+
+/*
+* Indicates loading, processing, whatever...
+	<div class="spinner"></div>
+*/
+
+.loader {
+    font-size: 0;
+    line-height: 60px;
+
+    display: inline-block;
+
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+
+    -webkit-animation: rotation .75s infinite linear;
+       -moz-animation: rotation .75s infinite linear;
+        -ms-animation: rotation .75s infinite linear;
+         -o-animation: rotation .75s infinite linear;
+            animation: rotation .75s infinite linear;
+    vertical-align: middle;
+
+    border-top: 7px solid rgba($colorBlack,.4);
+    border-right: 7px solid rgba($colorBlack,.2);
+    border-bottom: 7px solid rgba($colorBlack,.2);
+    border-left: 7px solid rgba($colorBlack,.2);
+    border-radius: 100%;
+    //For showing inline like next to search filters as they update, etc...
+    &.loader--sm {
+        width: 18px;
+        height: 18px;
+        margin-top: -2px;
+
+        border-width: 2px;
+    }
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes rotation {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-ms-keyframes rotation {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes rotation {
+    from {
+        -o-transform: rotate(0deg);
+    }
+    to {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

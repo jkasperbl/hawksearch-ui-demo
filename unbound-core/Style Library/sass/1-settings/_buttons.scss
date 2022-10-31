@@ -1,0 +1,15 @@
+/* COLORS
+========================================================================== */
+
+/*default buttons*/
+$btnBg: $colorLinks !default;
+$btnBorderColor: darken($btnBg, 5%) !default;
+$btnHoverBg: darken($btnBg, 5%) !default;
+$btnHoverBorderColor: darken($btnHoverBg, 5%) !default;
+
+/*secondary buttons*/
+$btnSecondaryBg: $colorBrandSecondary !default;
+$btnSecondaryBorderColor: darken($btnSecondaryBg, 5%) !default;
+$btnSecondaryHoverBg: darken($btnSecondaryBg, 5%) !default;
+$btnSecondaryHoverBorderColor: darken($btnSecondaryHoverBg, 5%) !default;
+

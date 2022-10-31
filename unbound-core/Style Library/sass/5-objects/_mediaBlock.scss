@@ -1,0 +1,98 @@
+/* MEDIA BLOCK
+========================================================================== */
+
+/*
+    * Place any image- and text-like content side-by-side, as per:
+    stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+
+    USAGE:
+        <div class="mediaBlock">
+        <figure><img src="..."></figure>
+        <div class="mediaBlock-body">
+        <h3>Media header</h3>
+        <p>Aximil inulluptibus si officiatur aut accus ad essit as volesci aeprat verior seqvenes comn imp orecat landuciliti.</p>
+        <p><a href="" class="btn">Learn more</a></p>
+        </div>
+        </div>
+    *
+    */
+
+//Mobile first layout of mediaBlock
+.mediaBlock {
+    margin-bottom: $spacingBase;
+    figure {
+        text-align: left;
+        img {
+            height: 120px;
+        }
+    }
+}
+
+/*
+    * We are defining the non-mobile styles of the mediablock here as an include so we don't have to rewrite it for each
+    * of the breakpoint modifiers below
+    */
+
+@mixin mediaBlock {
+    overflow: hidden;
+
+    padding-left: 0;
+
+    border-left: 0;
+    /*
+        * Always use a figure to contain the image
+        */
+    figure {
+        float: left;
+
+        max-width: 35%;
+        margin-right: $spacingBase;
+        margin-bottom: 0;
+
+        text-align: center;
+        img {
+            height: auto;
+        }
+        /*
+            * Accomodate responsive videos
+            */
+        &.figure--video {
+            width: 35%;
+            height: 200px;
+            padding-top: 200px;
+        }
+    }
+    /*
+        * The content to the right of the image
+        */
+    .mediaBlock-body {
+        overflow: hidden;
+    }
+    /*
+        * Place the image/video on the right side instead of the left
+        */
+    &.mediaBlock--imgRight {
+        figure {
+            float: right;
+
+            margin-right: 0;
+            margin-left: $spacingBase;
+        }
+    }
+}
+
+@include mq(sm) {
+    .mediaBlock--breakSm {
+        @include mediaBlock;
+    }
+}
+@include mq(med) {
+    .mediaBlock--breakMed {
+        @include mediaBlock;
+    }
+}
+@include mq(lg) {
+    .mediaBlock--breakLg {
+        @include mediaBlock;
+    }
+}

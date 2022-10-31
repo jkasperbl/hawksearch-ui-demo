@@ -1,0 +1,26 @@
+/* FILTER PANEL
+========================================================================== */
+.filters {
+	&-mobile {
+		padding:$spacingSm;
+	}
+}
+.filters-heading {
+	@include font-size(20px);
+	margin-bottom:$spacingSm;
+}
+.filters-subHeading {
+	@include font-size(18px);
+	margin-bottom:$spacingXSm;
+}
+
+.filters-list {
+	@extend .list--bare;
+	@include font-size(14px);
+	li {
+		margin:$spacingXSm 0;
+	}
+	a {
+		text-decoration:none;
+	}
+}

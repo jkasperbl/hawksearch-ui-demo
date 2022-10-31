@@ -1,0 +1,76 @@
+/* FEATURE BLOCK
+========================================================================== */
+.video {
+    @extend .h-hard;
+}
+.video-inner {
+    @extend %flexbox;
+
+    @include flex-direction(column);
+
+    //center and limit width so doesnt get crazy huge or get funky aspect ratio on large screens
+    max-width: $startXXLg;
+    margin-right: auto;
+    margin-left: auto;
+}
+.video-content {
+    @extend %noPhatBottom;
+    @extend %flexbox;
+
+    @include align-items(center);
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    min-width: 0;
+    padding-top: $spacingBase;
+    padding-right: $spacingBase;
+    padding-bottom: $spacingBase;
+    padding-left: $spacingBase;
+
+    p {
+        margin-bottom: $spacingSm;
+    }
+    //stupid IE11 hack
+    * {
+        max-width: 100%;
+    }
+}
+.video-embed {
+    @include flex(0 0 auto);
+
+    iframe {
+        width: 100%;
+        min-height: 100%;
+    }
+}
+.video-heading {
+    @include font-size($h4Size);
+
+    margin-bottom: $spacingXSm;
+}
+
+@include mq(med) {
+    .video-inner {
+        @include flex-direction(row);
+
+        height: 40vmin;
+        min-height: 400px;
+    }
+    .video-content {
+        //the 0% is another IE11 hack
+        @include flex(1 1 0%);
+
+        min-width: 0;
+    }
+    .video-embed {
+        width: 50%;
+    }
+    .video--imgRight {
+        .video-content {
+            @include order(1);
+        }
+        .video-embed {
+            @include order(2);
+        }
+    }
+}

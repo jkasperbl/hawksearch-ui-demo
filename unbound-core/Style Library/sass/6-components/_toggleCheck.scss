@@ -1,0 +1,48 @@
+/* TOGGLE LINKS
+========================================================================== */
+
+/*
+* Basic show and hide with checkboxes and radios
+*
+* These styles are applied to the basic show and hide script functionality defined in
+* Script Library/front-end/toggleCheck.js
+*
+    <input type="checkbox" toggleCheckTarget="theStuff" id="showStuff">
+    <label for="showStuff">Show additional info</label>
+
+    <div class="toggleCheckTarget is-hidden" id="theStuff">Additional info</div>
+*/
+
+.toggleCheckTarget {
+    @include transition(all .2s ease-in-out);
+
+    position: static;
+    //add z-index to fix where transformed elements get screwy z-index
+    z-index: 1;
+
+    max-height: none;
+
+    -webkit-transform: scale(1,1); /* Chrome, Safari, Opera */
+        -ms-transform: scale(1,1); /* IE 9 */
+            transform: scale(1,1); /* Standard syntax */
+    -webkit-transform-origin: top center; /* Chrome, Safari, Opera */
+        -ms-transform-origin: top center; /* IE 9 */
+            transform-origin: top center;
+
+    &.is-hidden {
+        overflow: hidden;
+
+        max-height: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        -webkit-transform: scale(1,0); /* Chrome, Safari, Opera */
+            -ms-transform: scale(1,0); /* IE 9 */
+                transform: scale(1,0); /* Standard syntax */
+
+        * {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+}

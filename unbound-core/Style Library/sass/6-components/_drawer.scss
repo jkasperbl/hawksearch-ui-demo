@@ -1,0 +1,99 @@
+/* MOBILE DRAWER
+========================================================================== */
+
+.drawerMask {
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:4;
+	background:rgba($colorBlack,.8);
+}
+
+.drawer {
+    background:$colorWhite;
+	z-index: 5;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right:0;
+	width: 300px;
+	height: 100%;
+	-webkit-transform: translate(300px, 0);
+	-ms-transform: translate(300px, 0);
+	transform: translate(300px, 0);
+	-webkit-transition: -webkit-transform 0.3s ease-out;
+	transition: transform 0.3s ease-out;
+	display: flex;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+	&:after {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 100%;
+		background: transparent;
+		width: 0;
+		height: 100vh;
+		z-index: 20;
+		pointer-events: none;
+		transition: background 0.3s ease-out;
+	}
+}
+.drawer-content {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.drawerItem {
+	display:none;
+	&.is-visible {
+		display:block;
+	}
+}
+.drawer-close {
+	background:$colorBlack;
+	height: 42px;
+	line-height: 42px;
+	border: none;
+	padding: 0 $spacingSm 0 0;
+	display: block;
+	width:100%;
+	-webkit-transition: background-color 0.2s ease-out;
+	transition: background-color 0.2s ease-out;
+	-webkit-tap-highlight-color: transparent;
+	color:$colorWhite;
+	text-align:right;
+	-webkit-flex: none;
+	-ms-flex: none;
+	flex: none;
+	&:after {
+		@extend %iconStyle;
+		@include font-size($h2Size);
+		height: 42px;
+		line-height: 42px;
+		content: '\2715';
+		margin:0 0 0 5px;
+		vertical-align:middle;
+	}
+}
+body.is-toggled--drawer {
+  overflow: visible;
+  .drawer {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    &:after {
+    	background: rgba($colorBlack, .65);
+    	width: 100vw;
+    }
+  }
+  .pageMask {
+    opacity:1;
+    visibility: visible;
+  }
+}

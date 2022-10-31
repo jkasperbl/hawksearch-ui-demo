@@ -1,0 +1,722 @@
+/* FORMS
+========================================================================== */
+
+/*
+* OK so this is the odd duck of the starter
+* Components like radio buttons and checkboxes need structure to display correctly
+* and we also need to account for iAPPS formbuilder structure.
+* So these components and modules currently all live here for convenience
+*/
+
+// iApps Forms CSS Class
+.formHeading {
+
+}
+fieldset {
+    @extend %clearfix;
+
+    display: block;
+    clear: both;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+
+legend {
+    display: block;
+    clear: both;
+
+    margin-bottom: $spacingBase;
+    padding: 0;
+
+    font-family: $fontHighlight;
+
+    border: 0;
+
+    /*
+  * The label style helps when you need a legend for semantics/accessability but it should look 
+  * visually like a label (like above a group of checkboxes or radios)
+  */
+    &.legend--labelStyle {
+        margin: 0 0 $spacingXSm 0;
+        padding: 0;
+
+        font-family: $fontDefault;
+
+        color: $colorGreyDark;
+        border-bottom: none;
+        background: transparent;
+    }
+}
+/* 
+* iAPPS form builder currently uses <span class="labelItems"> instead of <label>
+* for text fields so we include that below
+*/
+label,
+.labelItems {
+    display: inline-block;
+
+    margin-bottom: $spacingXSm;
+
+    cursor: pointer;
+
+    color: $colorGreyDark;
+    @include themify(locations){
+        display:none;
+    }
+}
+/*
+* iAPPS form builder currently does not add the "type" attribute so we target text fields by
+* using [objecttype="textbox"] which it does use
+*/
+
+//the first two here are for fomrbuilder forms
+input[objecttype='textbox'],
+.formTextBox,
+input[type='text'],
+input[type='search'],
+input[type='email'],
+input[type='tel'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetimelocal'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='color'],
+input[type='range'],
+input[type='file'],
+textarea,
+select {
+    @include font-size($formInputFontSize);
+
+    display: block;
+
+    width: 100%;
+    height: $formInputHeight;
+    margin-bottom: $spacingBase;
+    padding: $formInputPadding;
+
+    vertical-align: baseline;
+    font-family: $fontDefault;
+    font-size: 100%;
+    line-height: normal;
+
+    color: $formInputColor;
+    border: $formInputBorder;
+    border-radius: $formInputBorderRadius;
+    outline: 0;
+    background: $formInputBackground;
+
+    &:focus {
+        color: $formInputFocusColor;
+        border-color: $formInputFocusBorderColor;
+        background-color: $formInputFocusBackground;
+    }
+    &[disabled] {
+        cursor: not-allowed;
+
+        opacity: 1;
+        color: $formInputDisabledColor;
+        border-color: $formInputDisabledBorderColor;
+        background-color: $formInputDisabledBackground;
+    }
+    @include themify(locations){
+        height:41px;
+    }
+}
+
+// Special styling for checkbox and radio inputs
+input[type='radio'],
+input[type='checkbox'] {
+    width: auto;
+    min-width: 13px;
+    height: 13px;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+// Special styling for textarea
+textarea {
+    height: auto;
+
+    resize: vertical;
+}
+
+/*
+* Strip IOS styling on form elements
+*/
+select,
+textarea,
+input[type='text'],
+input[type='search'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='week'],
+input[type='month'],
+input[type='time'],
+input[type='number'],
+input[type='password'],
+input[type='tel'],
+input[type='email'],
+input[type='url'],
+input[type='color'] {
+    -webkit-appearance: none;
+    @include themify(locations){
+        color:$colorBrandPrimaryDarkest;
+    }
+
+}
+
+/*
+* Seems like most designs have some customization of the select
+* element so here's the biginnings of that. Just comment out or delete if not needed.
+*/
+select {
+    padding-right: 30px;
+
+    cursor: pointer;
+
+    background: $formInputBackground  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAHCAYAAAA4R3wZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGlJREFUeNpinDp1ajgDA8NSIGZmIB6kMAGJlUCcCMR/idSUBcRzmaCcxSBTiNBUAMTTQQwmJMEFBDQXA/FEGIcJTXIu1CnooB6I+5AFmLAomg41HQaaoBgFsOBwFsh0NiDmh9qGAQACDAAqgA+akkvLkQAAAABJRU5ErkJggg==') no-repeat right 9px top 55%;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+
+    &::-ms-expand {
+        display: none;
+    }
+    option {
+        height: 100%;
+    }
+}
+
+/*
+* Special styles for selects that allow multiple options and/or have the size attribute
+*/
+select[multiple],
+select[size] {
+    height: auto;
+
+    background: $formInputBackground;
+
+    option {
+        height: auto;
+    }
+}
+
+input[type='file']::-ms-value {
+    border: none;
+    background: $formInputBackground;
+}
+
+input[type='file']::-ms-browse {
+    -webkit-appearance: none;
+}
+
+input[type='file']::-webkit-file-upload-button {
+    -webkit-appearance: none;
+}
+
+input[type='range'] {
+    border: 1px solid transparent;
+
+    &:focus {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+
+// Remove borders and padding on range controls in IE10+
+_::-ms-reveal,
+input[type='range'] {
+    border: 1px solid transparent;
+}
+
+// color the placeholder attribute text for text elements
+
+::-webkit-input-placeholder {
+    opacity: 1;
+    color: $formColorPLaceholder;
+}
+
+:-moz-placeholder {
+    opacity: 1;
+    /* Firefox 18- */
+    color: $formColorPLaceholder;
+}
+
+::-moz-placeholder {
+    opacity: 1;
+    /* Firefox 19+ */
+    color: $formColorPLaceholder;
+}
+
+:-ms-input-placeholder {
+    opacity: 1;
+    color: $formColorPLaceholder;
+}
+
+/*
+* Browser fixes for default field styles
+*/
+@-moz-document url-prefix() {
+    // Remove excess padding in Firefox
+    input[type='color'] {
+        padding: 0;
+    }
+    // Fix file display height.
+    input[type='file'] {
+        height: auto;
+
+        //min-height: $formInputHeight;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:0) {
+    // Remove excess padding in Webkit
+    input[type='color'] {
+        padding: 0;
+
+        &::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+        &::-webkit-color-swatch {
+            border: none;
+        }
+    }
+    // Fix field styling on iPhone and iPad.
+    // Add a select indicator
+    // Remove for multiple
+    select {
+        padding-right: 1.67rem;
+
+        //background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMC41Ij48cG9seWdvbiBmaWxsPSIjMjIyIiBwb2ludHM9IjExLDAgNS41LDkgMCwwIi8+PC9zdmc+'); // 1
+        background-repeat: no-repeat;
+        background-position: right .6rem center;
+
+        [dir=rtl] & {
+            padding-right: 0;
+            padding-left: 1.67rem;
+
+            background-position: .6rem center;
+        }
+        &[multiple] {
+            padding-right: 0;
+            padding-left: 0;
+
+            background-image: none;
+        }
+    }
+}
+
+
+/******************STRUCTURES & iAPPS FORMBUILDER******************/
+/*
+* I know these would technically be Components but taking into account that
+* there is certain structuring needed for proper display of things like radios and
+* checkboxes and also that iAPPS formbuilder
+*/
+.form-container,
+main > div[id*=PageZoneContainer] > .CLFormContainer,
+main > div[id*=PageZoneContainer] > div[id*=PageZoneContainer]  > .CLFormContainer
+{
+    @extend %flexbox;
+    @include flex-direction(column);
+    .form-body, .formBody {
+        width:100%;
+        max-width:calc(#{$maxWidth} + #{$gutterBase*2});
+        @include themify(locations){
+            display: inline-block;
+            width: inherit;
+        }
+    }
+}
+main > div[id*=PageZoneContainer] >.CLLeadContainer,
+main > div[id*=PageZoneContainer],
+main > div[id*=PageZoneContainer] > div[id*=PageZoneContainer]
+{
+    .form-container,  > .CLFormContainer{
+        @extend %section;
+        @include align-items(center);
+
+    }
+    .form-header, .form-footer, .formFooter {
+        max-width:$maxWidth;
+        width:100%;
+    }
+}
+
+/*
+* .formBody is the container iAPPS places formbuilder forms into by default
+* I'm just extending the row class so we can treat the interior structures like responsive columns
+*/
+
+.formBody, .form-body {
+    @extend .row;
+}
+
+/*
+* .formRow is the container iAPPS places text fields, selects and textareas into by default
+* I'm just extending the .column class so the client can add grid classes so they behave like
+* responsive columns
+
+  <div class="formRow med-12">
+    <span class="labelItems">...</span>
+        <input, select, textarea, etc...>
+  </div>
+
+*/
+
+.formRow, .form-row {
+    //get the basic functionality of grid "columns"
+    @extend .column;
+}
+
+/*
+* .formSubmit is the container iAPPS places the submit button in by default
+* Formbuilder won't allow us to add classes to the submit button so we need to 
+* apply the .btn styles to it
+
+  <div class="formFooter">
+    <div class="formSubmit">
+      <a href="#" onclick="...">Submit</a>
+    </div>
+  </div>
+
+*/
+
+.formFooter, .form-footer {
+    margin-bottom: $spacingBase;
+    padding-top: $spacingSm;
+
+    border-top: 1px solid $colorBorder;
+    a {
+        @extend .btn;
+    }
+    @include themify(locations){
+        display:inline-block;
+        vertical-align: top;
+    }
+}
+
+.formSubmit {
+    //margin-bottom: $spacingBase;
+}
+
+/*
+* iAPPS formbuilder creates these structures around checkbox and radio button form
+* parts by default so prolly a good idea to just go ahead and use the same structure on custom forms as well.
+
+  <div class="formCheckBox">
+    <span>
+      <input type="checkbox" id="checkOne">
+      <label for="checkOne">Option1</label>
+    </span>
+  </div>
+
+  <div class="formRadioButton">
+    <span>
+      <input type="radio" name="radios" id="radioOne">
+      <label for="radioOne">Option1</label>
+    </span>
+  </div>
+
+*/
+
+.formCheckBox,
+.formRadioButton, .form-row > ul {
+    margin-bottom: $spacingBase;
+
+    > span, li {
+        display: inline-block;
+
+        margin: 0 $spacingXSm $spacingXSm 0;
+    }
+    label {
+        position: relative;
+
+        display: block;
+        overflow: visible;
+
+        margin: 0;
+        padding: 2px 7px 2px 32px;
+
+        //make the label look kinda like a button
+        font-weight: normal;
+
+        color: $checkRadLabelcolor;
+        border-radius: $checkRadLabelBorderRadius;
+        background: $checkRadLabelBackground;
+
+        &:hover {
+            color: $checkRadLabelHoverColor;
+            background: $checkRadLabelHoverBackground;
+        }
+        /* 
+    * We are using CSS and fontello to simulate the actual checkboxes and radios so 
+    * we have styling control.
+    */
+        &:before {
+            @extend %iconStyle;
+
+            width: 16px;
+            height: 16px;
+            margin: -2px 7px 0 -27px;
+            padding: 1px;
+
+            content: '\00A0';
+            vertical-align: middle;
+            font-size: 14px;
+            //line-height and font size are 2px lower than height to account for 1px padding
+            //on top and bottom
+            line-height: 14px;
+
+            color: $colorGreyLight;
+            border: 1px solid $colorBorder;
+            background: $colorWhite;
+            background-clip: padding-box;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, .1) inset;
+        }
+    }
+    input[type="radio"], input[type="checkbox"] {
+        // hide the actual checkboxes and radios
+        position: absolute;
+
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+
+        border: 0;
+
+        /*
+    * sometimes chrome has strange behavior when you check a radio or checkbox
+    * uncomment at your own risk if you run into this ;)
+    */
+        //display: none;
+        &:checked {
+            + label {
+                color: $checkRadLabelCheckedColor;
+                background: $checkRadLabelCheckedBackground;
+            }
+        }
+        &:disabled {
+            + label {
+                cursor: not-allowed;
+                pointer-events: none;
+
+                color: $checkRadLabelDisabledColor;
+                background: $checkRadLabelDisabledBackground;
+            }
+        }
+    }
+}
+.formCheckBox, .form-row > ul {
+    input[type='checkbox'] + label {
+        &:before {
+            //content: '\00A0';
+            border-radius: 2px;
+            text-indent:-1px;
+        }
+    }
+    input[type='checkbox']:not(:checked) + label:hover:before {
+        content: '\e82e';
+
+        color: $colorGreyLight;
+    }
+    input[type='checkbox']:checked + label:before {
+        content: '\e82e';
+
+        color: $colorSuccess;
+    }
+}
+
+.formRadioButton, .form-row > ul {
+    input[type='radio'] + label {
+        &:before {
+            border-radius: 50%;
+        }
+    }
+    input[type="radio"]:not(:checked) + label:hover:before {
+        border: 4px solid $colorBorder;
+        background: darken($colorGreyLight,11);
+    }
+    input[type="radio"]:checked + label:before {
+        background-image: radial-gradient($colorSuccess, $colorSuccess 4px, transparent 4px );
+    }
+    &:not(:checked) + label:hover:before {
+        background-image: radial-gradient(darken($colorGreyLight,11), darken($colorGreyLight,11) 4px, transparent 4px );
+    }
+}
+
+//style weird iapps file upload
+.formRow .formFile {
+    @include flexbox;
+    @include align-items(center);
+
+    margin-bottom: $spacingBase;
+
+    input[type='text'] {
+        margin-right: $spacingXSm;
+        margin-bottom: 0;
+    }
+}
+// default iapps captcha
+.formRow .formCaptcha {
+    margin-bottom: $spacingBase;
+
+    text-align: center;
+
+    @include mq(med) {
+        @include flexbox;
+        @include align-items(center);
+
+        input[type='text'] {
+            margin-right: $spacingXSm;
+            margin-bottom: 0;
+        }
+    }
+}
+//iapps lead forms
+.form-container .form-body:last-child {
+    margin-bottom: $spacingBase;
+}
+.form-row {
+    > ul {
+        list-style:none;
+        padding:0;
+        /*> li {
+            display:inline-block;
+            margin: 0 $spacingXSm $spacingXSm 0;
+        }*/
+    }
+}
+//inlineForm
+.inlineForm-heading {
+    text-align:center;
+    @include themify(locations){
+        text-align: left;
+    }
+}
+.inlineForm {
+    .form-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .inlineForm-inner, .form-container-inner {
+        width:100%;
+        display:flex;
+        align-items:center;
+
+        .inlineLabel {
+            max-width:400px;
+        }
+
+        input {
+            height:42px;
+            margin:0;
+        }
+
+        .form-row {
+            position: relative;
+
+            .validator {
+                position: absolute;
+                left: $gutterBase;
+                right: $gutterBase;
+                margin: 0 !important;
+            }
+        }
+    }
+    .form-footer {
+        border:none;
+        margin:0;
+        padding:0;
+    }
+}
+//inline label pattern
+.inlineLabel {
+    position: relative;
+    width:100%;
+
+    label {
+        @include transition(all .5s ease-in-out);
+        @include font-size(12px);
+
+        position: absolute;
+        z-index: -1;
+        bottom: 103%;
+
+        margin: 0;
+
+        line-height: 1.5;
+
+        opacity: 0;
+        color: darken($colorGrey,15);
+    }
+    label.on {
+        color: $colorHighlight;
+    }
+    label.show {
+        z-index: 0;
+
+        opacity: 1;
+    }
+    option {
+        color: black;
+    }
+    .watermark,
+    .watermark option:first-child,
+    .placeholder {
+        color: $colorGrey !important;
+    }
+}
+.formRow.inlineLabel label {
+    left: $gutterBase;
+}
+@include mq(med) {
+    .formRow.inlineLabel label {
+        left: $gutterLg;
+    }
+}
+.flashInput {
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'],
+    select,
+    .uploader {
+        -webkit-animation: pulse 1.5s;
+                animation: pulse 1.5s;
+    }
+}
+@-webkit-keyframes pulse {
+    0% {
+        background-color: rgba($colorWarning,.75);
+    }
+    100% {
+        background-color: $colorWhite;
+    }
+}
+@keyframes pulse {
+    0% {
+        background-color: rgba($colorWarning,.75);
+    }
+    100% {
+        background-color: $colorWhite;
+    }
+}

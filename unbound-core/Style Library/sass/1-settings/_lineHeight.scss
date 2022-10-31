@@ -1,0 +1,18 @@
+/* LINE HEIGHT
+========================================================================== */
+
+/*
+ * The line height specified here affects typography spacing/margins across the site - see "SPACING UNITS" BELOW.
+ *
+ * !! Going below 24px is NOT recommended.
+ */
+$lineHeight: 26px!default;
+
+/*
+* For calculating the proper line height for font sizes
+*/
+
+$lineHeightRatio: $lineHeight / $fontSizeBase;
+
+
+

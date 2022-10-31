@@ -1,0 +1,90 @@
+/* FEATURE BLOCK
+========================================================================== */
+
+.featureBlock {
+    text-align:center;
+    img {margin-bottom:$spacingBase;}
+    &[class*='section--contrast'] {
+        .featureBlock-figcaption {
+            color: inherit;
+        }
+    }
+}
+
+.featureBlock-heading {
+    text-align: center;
+}
+.featureBlock-figure {
+    @extend %noPhatBottom;
+}
+.featureBlock-figcaption {
+    padding-bottom: 0;
+
+    border-bottom-width: 0;
+
+    p {
+        margin-bottom: $spacingSm;
+        line-height:1.3;
+    }
+    .btn {margin-top:$spacingXSm;}
+}
+.featureBlock-subHeading {
+    @include font-size($h5Size);
+
+    margin-bottom: $spacingSm;
+    a {
+        color:inherit;
+        &:hover {
+            text-decoration:underline;
+        }
+    }
+}
+.featureBlock--four {
+}
+.featureBlock-mainFeature {
+    @extend %flexbox;
+
+    @include flex-direction(column);
+    text-align:left;
+
+    @include mq(lg) {
+        @include flex-direction(row);
+        @include align-items(center);
+    }
+}
+.featureBlock-mainCopy {
+    //overflow:hidden;
+}
+.featureBlock-mainImage {
+    @include mq(med) {
+        padding-right: $spacingBase;
+        flex-shrink:0;
+
+        //float:left;
+        //max-width:50%;
+        //margin-right:$spacingBase;
+    }
+}
+.featureBlock--six .row {
+    //clear:both;
+}
+.featureBlock-mainFeature--imageRight {
+    .featureBlock-mainImage {
+        @include mq(med) {
+            @include order(2);
+
+            float: right;
+
+            padding-right: 0;
+            padding-left: $spacingBase;
+        }
+    }
+}
+
+@include mq(lg) {
+    .featureBlock--four {
+        .featureBlock-figure {
+            margin-bottom: 0;
+        }
+    }
+}

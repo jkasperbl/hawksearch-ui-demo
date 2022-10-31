@@ -1,0 +1,14 @@
+/* RATING
+========================================================================== */
+
+.rating {
+    @include font-size(14px);
+
+    color: #f9b106;
+
+    i {
+        display: inline-block;
+
+        margin-right: $spacingXSm/2;
+    }
+}

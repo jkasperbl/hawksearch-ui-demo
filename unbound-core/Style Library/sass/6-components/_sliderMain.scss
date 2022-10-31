@@ -1,0 +1,207 @@
+/* SLIDER MAIN
+========================================================================== */
+
+.sliderMain {
+    background: $colorGreyLightest;
+}
+.sliderMain.slick-dotted {
+    margin-bottom: 0;
+}
+
+.sliderMain-slide {
+    position: relative;
+
+    a {
+        color: $colorText;
+    }
+}
+.sliderMainImage {
+    height: 30vmin;
+    min-height: 150px;
+
+    background-position: center center;
+    background-size: cover;
+
+    @include mq(lg) {
+        height: 40vmin;
+        min-height: 400px;
+    }
+}
+.sliderMainContent {
+ 
+    @include mq(med) {
+        position: absolute;
+        top: $spacingBase;
+        right: $spacingBase;
+        bottom: $spacingBase;
+        left: $spacingBase;
+    }
+}
+.sliderMainContent-inner {
+    @extend %flexbox;
+
+    position: relative;
+
+    height: 100%;
+    padding: $spacingBase $spacingBase $spacingLg $spacingBase;
+
+    text-align: center;
+
+    @include mq(med) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+.sliderMainContent-copy {
+    @extend %noPhatBottom;
+
+    @include font-size(14px);
+
+    line-height: 1.2;
+
+    @include mq(med) {
+        @include font-size(18px);
+
+        max-width: 50%;
+
+        [class*='sliderMain-slide--textBackground'] & {
+            padding: $spacingSm;
+        }
+    }
+
+    hr {
+        width: 50px;
+        margin-right: auto;
+        margin-left: auto;
+
+        border-color: $colorWhite;
+    }
+}
+.sliderMainContent-heading {
+    @extend .h-pushXSmBottom;
+
+    @include responsive-font(6vw, 18px, 60px, 40px);
+
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+//classes applied to .sliderMain-slide that position the copy
+@include mq(med) {
+    //classes applied to .sliderMain-slide that position the copy
+    .sliderMain-slide--leftTop, .banner--leftTop {
+        .sliderMainContent-inner, .banner-contained {
+            @include align-items(flex-start);
+            .bannerCopy{@include align-self(flex-start);text-align: left;margin-right:auto;}
+            text-align: left;
+        }
+        hr {
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+    .sliderMain-slide--centerTop, .banner--centerTop {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(center);
+            @include align-items(flex-start);
+            .bannerCopy{@include align-self(flex-start);}           
+        }
+    }
+    .sliderMain-slide--rightTop, .banner--rightTop {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(flex-end);
+            @include align-items(flex-start);
+            .bannerCopy{@include align-self(flex-start);text-align: right;}          
+
+            text-align: right;
+        }
+        hr {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+    .sliderMain-slide--leftCenter, .banner--leftCenter {
+        .sliderMainContent-inner, .banner-contained {
+            @include align-items(center);
+            .bannerCopy{@include align-self(center);text-align: left;margin-right:auto;}          
+
+            text-align: left;
+        }
+        hr {
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+    .sliderMain-slide--centerCenter, .banner--centerCenter {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(center);
+            @include align-items(center);
+            .bannerCopy{@include align-self(center);}            
+        }
+    }
+    .sliderMain-slide--rightCenter, .banner--rightCenter {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(flex-end);
+            @include align-items(center);
+            .bannerCopy{@include align-self(center);}      
+
+            text-align: right;
+        }
+        hr {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+    .sliderMain-slide--leftBottom, .banner--leftBottom {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(flex-start);
+            @include align-items(flex-end);
+            .bannerCopy{@include align-self(flex-end);text-align: left;}      
+
+            text-align: left;
+        }
+        hr {
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+    .sliderMain-slide--centerBottom, .banner--centerBottom {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(center);
+            @include align-items(flex-end);
+            .bannerCopy{@include align-self(flex-end);}                    
+        }
+    }
+    .sliderMain-slide--rightBottom, .banner--rightBottom {
+        .sliderMainContent-inner, .banner-contained {
+            @include justify-content(flex-end);
+            @include align-items(flex-end);
+           .bannerCopy{@include align-self(flex-end);text-align: left;}           
+
+
+            text-align: right;
+
+        }
+        hr {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+    .sliderMain-slide--textLight {
+        a {
+            color: $colorWhite;
+        }
+    }
+    .sliderMain-slide--textBackgroundLight {
+        .sliderMainContent-copy {
+            background: rgba($colorWhite, .5);
+        }
+    }
+    .sliderMain-slide--textBackgroundDark {
+        .sliderMainContent-copy {
+            background: rgba($colorBlack, .5);
+        }
+        a {
+            color: $colorWhite;
+        }
+    }
+}

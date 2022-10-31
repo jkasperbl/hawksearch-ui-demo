@@ -1,0 +1,31 @@
+/* HEADINGS
+========================================================================== */
+
+/** Put all styles to indiviual elements 
+Helps for compiling style dropdown **/
+
+h1 {
+    font-family: $fontHighlight;	
+    @include font-size($h1Size);
+}
+h2 {
+    font-family: $fontHighlight;	
+    @include font-size($h2Size);
+}
+h3 {
+    font-family: $fontHighlight;	
+    @include font-size($h3Size);
+}
+h4 {
+    font-family: $fontHighlight;	
+    @include font-size($h4Size);
+}
+h5 {
+    font-family: $fontHighlight;	
+    @include font-size($h5Size);
+}
+h6 {
+    font-family: $fontHighlight;	
+    @include font-size($h6Size);
+}
+

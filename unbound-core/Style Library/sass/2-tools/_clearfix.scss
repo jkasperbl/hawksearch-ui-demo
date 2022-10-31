@@ -1,0 +1,26 @@
+/* CLEARFIX
+========================================================================== */
+
+/*
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend clearfix with Sass to avoid the `.h-clearfix` class appearing over
+ * and over in your markup.
+
+ 	.element {
+		@extend %clearfix;
+ 	}
+ 	
+ */
+
+ %clearfix {
+    &:after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+//mixin for use in media queries or anyplace else extending doesnt make sense
+@mixin clearfix {
+    @extend %clearfix;
+}
+

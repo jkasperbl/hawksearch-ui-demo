@@ -1,0 +1,32 @@
+/* THEMES
+========================================================================== */
+
+/*
+* These are for providing multiple theme stylesheets for multi-theme engagements
+* The most common usage is using the same HTML base with different color themes
+*
+	USAGE:
+		.headerMain {
+			@include flex(0 0 auto);
+			padding-right:$gutterBase;
+			padding-left:$gutterBase;
+			  @include themify(upsStore) {
+			  	background-color:yellow;
+			  }
+			  @include themify(upsStoreGreen) {
+			  	background-color:green;
+			  }
+			  @include themify(upsStoreOrange) {
+			  	background-color:orange;
+			  }
+		  }
+
+		  You can change the path to the stylesheet in "/includes/meta" to test different themes
+*
+*/
+
+@mixin themify($theme) {
+  @if variable-exists(themeName) and $themeName == $theme {
+      @content;
+  }
+}

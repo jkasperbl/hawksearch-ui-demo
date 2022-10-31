@@ -1,0 +1,48 @@
+/*  SIDE TO SIDE
+========================================================================== */
+
+/*
+* Pretty basic. A common pattern where two elements are stacked on mobile and then
+* left and right justified horizontally on larger screens.
+* Usage:
+  <div class="sideToSideMed">
+    <h4>First element</h4>
+    <a class="btn">Second element</a>
+  </div>
+
+* We are defining the non-mobile styles of sideToSide here as an include so we don't have to rewrite it for each
+* of the breakpoints below
+*/
+
+@mixin sideToSide {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+    @include noPhatBottom;
+    >*, > ul > li {
+      margin-bottom:0 !important;
+    }
+}
+
+@include mq(sm) {
+    .sideToSideSm {
+        @include sideToSide;
+    }
+}/*end sm*/
+
+@include mq(med) {
+    .sideToSideMed {
+        @include sideToSide;
+    }
+}/*end med*/
+
+@include mq(lg) {
+    .sideToSideLg {
+        @include sideToSide;
+    }
+}/*end lg*/
+
+
+
+
+

@@ -1,0 +1,92 @@
+/* SWAP BOX
+========================================================================== */
+
+.swapBox {
+  @extend %flexbox;
+  border:$formInputBorder;
+  border-radius: $formInputBorderRadius;
+  margin-bottom:$spacingBase;
+  input {
+    border:0;
+    margin:0;
+    min-width:0;
+  }
+  a, label {
+    @extend %flexbox;
+    @include align-items(center);
+    @include flex(0 0 auto);
+    margin-bottom:0;
+  }
+  a {
+    @include font-size(14px);
+    padding:0 $spacingXSm;
+    border-left:1px solid $colorBorder;
+    &:hover {
+        background:$colorLinksHover;
+        color:$colorWhite;
+        border-width:0;
+    }
+  }
+}
+.swapBox > label {
+    padding-right: $spacingSm;
+    &:before {
+      @extend %iconStyle;
+      content: '\00A0';
+      height: 16px;
+      width: 16px;
+      //line-height and font size are 2px lower than height to account for 1px padding
+      //on top and bottom
+      line-height: 14px;
+      font-size:14px;
+      vertical-align:middle;
+      background: $colorGreyLight;
+      background-clip: padding-box;
+      padding: 1px;
+      color: $colorGreyLight;
+      margin:$spacingSm;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+      //border:1px solid $colorGreyLight;
+    }
+    &:after {
+        content:'';
+        display:block;
+        background:$colorGreyLighter;
+    }
+}
+.swap {
+    display:none;
+}
+ .swapBox input[type="checkbox"] {
+    // hide the actual checkboxes and radios
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+.swapBox  input[type="checkbox"]:checked {
+    + label {
+    font-size:0;
+    background:$colorGreyLighter;
+    padding:0;
+        &:before {
+            content: '\2715';
+            color: $colorWhite;
+            background:$colorDanger;
+        }
+    }
+    ~ .swap {
+        @extend %flexbox;
+        .swap-input {
+            height:auto;
+        }
+    }
+  }
+.swap {
+  @extend %flexbox;
+  @include flex(2);
+}

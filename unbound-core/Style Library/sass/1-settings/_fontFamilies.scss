@@ -1,0 +1,18 @@
+/* FONT FAMILIES
+========================================================================== */
+
+/*
+ * Declare the base fonts used for body text, headings, etc.
+ *
+ * $fontDefault is the main page font applied to the HTML element by default
+ * in components\_html.scss
+ *
+ * $fontHighlight is used for standout text and also applied to headings by default
+ * in components\_headings.scss
+ */
+
+$fontDefault: 'montserrat', Helvetica, sans-serif !default;
+$fontHighlight: 'roboto', Helvetica, sans-serif !default;
+$fontIcon: 'fontello' !default;
+
+

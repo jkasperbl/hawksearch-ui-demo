@@ -1,0 +1,49 @@
+/*COMMENT
+=======================================================================================*/
+
+.comment {
+    @extend %noPhatBottom;
+    @extend .icon-comment-alt;
+
+    @include font-size(14px);
+
+    position: relative;
+
+    margin-bottom: $spacingSm;
+    padding-left: $spacingBase;
+
+    line-height: 1.6;
+
+    &:before {
+        @extend %iconStyle;
+
+        @include font-size(18px);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        color: $colorGreyLight;
+    }
+    p {
+        margin-bottom: $spacingXSm;
+    }
+    &.comment-reply {
+        @extend .icon-arrow-right-down;
+
+        margin-left: $spacingBase;
+    }
+}
+
+p.comment-byline {
+    margin-bottom: 0;
+
+    font-weight: bold;
+    font-style: normal;
+
+    color: $colorGrey;
+}
+
+.comment-replyLink {
+    @include font-size(13px);
+}
