@@ -43,6 +43,9 @@
                 content: "//preview-dev.hawksearch.net/elasticdemo",
               },
               templates: {
+                facetsList: 'hawksearch-facets-list',
+                facetWrapper: 'hawksearch-facet-wrapper',
+                linkListFacet: 'hawksearch-link-list-facet',
                 pageSize: 'hawksearch-page-size',
                 pagination: 'hawksearch-pagination',
                 searchResults: 'hawksearch-search-results',
@@ -924,6 +927,73 @@
             </script>
         </form>
         <!--/#form1-->
+        <template id="hawksearch-facets-list">
+            <div class="filters">
+                <h2 class="filters-heading">Refine Your Results</h2>
+                {{#each facets}}
+                    <hawksearch-facet-wrapper hawksearch-facet-id="{{id}}"></hawksearch-facet-wrapper>
+                {{/each}}
+            </div>
+        </template>
+        <template id="hawksearch-facet-wrapper">
+            <h3 class="filters-subHeading">{{title}}</h3>
+            {{#if searchable}}
+                <input type="text" placeholder="Quick Lookup" hawksearch-facet-search value="{{filter}}" class="facet__search" />
+            {{/if}}
+            {{#if (eq type "checkbox")}}
+                <hawksearch-checkbox-list-facet hawksearch-facet></hawksearch-checkbox-list-facet>
+            {{/if}}
+            {{#if (eq type "color")}}
+                <hawksearch-color-facet hawksearch-facet></hawksearch-color-facet>
+            {{/if}}
+            {{#if (eq type "date-range")}}
+                <hawksearch-date-range-facet hawksearch-facet></hawksearch-date-range-facet>
+            {{/if}}
+            {{#if (eq type "link")}}
+                <hawksearch-link-list-facet hawksearch-facet></hawksearch-link-list-facet>
+            {{/if}}
+            {{#if (eq type "numeric-range")}}
+                <hawksearch-numeric-range-facet hawksearch-facet></hawksearch-numeric-range-facet>
+            {{/if}}
+            {{#if (eq type "range-slider")}}
+                <hawksearch-range-slider-facet hawksearch-facet></hawksearch-range-slider-facet>
+            {{/if}}
+            {{#if (eq type "recent-searches")}}
+                <hawksearch-recent-searches-facet hawksearch-facet></hawksearch-recent-searches-facet>
+            {{/if}}
+            {{#if (eq type "related-searches")}}
+                <hawksearch-related-searches-facet hawksearch-facet></hawksearch-related-searches-facet>
+            {{/if}}
+            {{#if (eq type "search")}}
+                <hawksearch-search-within-facet hawksearch-facet></hawksearch-search-within-facet>
+            {{/if}}
+            {{#if (eq type "size")}}
+                <hawksearch-size-facet hawksearch-facet></hawksearch-size-facet>
+            {{/if}}
+        </template>
+        <template id="hawksearch-link-list-facet">
+            <ul class="filters-list">
+                {{#each values}}
+                    {{#if visible}}
+                        <li>
+                            <a hawksearch-facet-value="{{value}}" rel="nofollow" class="facet__value">
+                                {{#if imageUrl}}
+                                    <img src="{{imageUrl}}" alt="{{title}}" title="{{title}}" />
+                                {{else}}
+                                   {{title}}
+                                {{/if}}
+                                ({{count}})
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/each}}
+                {{#if showToggle}}
+                    <li class="truncateList-toggle{{attribute ' is-active' expanded}}">
+                        <a hawksearch-facet-toggle rel="nofollow">{{toggleText}}</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </template>
         <template id="hawksearch-page-size">
             <div class="fakeSelectWrap fakeSelectWrap--sm">
                 <label for="pageSize" class="fakeSelectMask">Page Size</label>
