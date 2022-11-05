@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+:host {
+    --hawksearch-color-accent: lime;
+    --hawksearch-color-secondary: var(--hawksearch-hawksearch-color-secondary, #ccc);
+    --hawksearch-color-secondary-light: var(--hawksearch-hawksearch-color-secondary-light, #121212);
+    --hawksearch-color-secondary-dark: var(--hawksearch-hawksearch-color-secondary-dark, #878787);
+    --hawksearch-color-background: #1E1E1E;
+    --hawksearch-container-background--alternate: #121212;
+    --hawksearch-container-border: solid 1px #000;
+    --hawksearch-default-font-color: #D5D5D5;
+    --hawksearch-default-font-family: 'Source Sans Pro', sans-serif;
+}
+
+.tabs {
+    border-bottom-color: #000 !important;
+}
