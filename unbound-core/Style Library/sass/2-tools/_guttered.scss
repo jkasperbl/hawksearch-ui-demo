@@ -1,0 +1,58 @@
+/* GUTTERED
+========================================================================== */
+
+/*
+ * Add gutters to elements
+ * Pads sides with the gutter variations in variables.scss
+ * e.g.
+ * main { @extend %guttered--sm; }
+ *
+ * Works well with the container extension to provide side padding on mobile
+ */
+
+ %guttered {
+    padding-left: $gutterBase;
+    padding-right: $gutterBase;
+}
+
+ %guttered--xsm {
+    padding-left: $gutterXSm;
+    padding-right: $gutterXSm;
+}
+
+ %guttered--sm {
+    padding-left: $gutterSm;
+    padding-right: $gutterSm;
+}
+
+ %guttered--lg {
+    padding-left: $gutterLg;
+    padding-right: $gutterLg;
+}
+
+ %guttered--xlg {
+    padding-left: $gutterXLg;
+    padding-right: $gutterXLg;
+}
+
+//mixins for use in media queries or anyplace else extending doesnt make sense
+@mixin guttered {
+    @extend %guttered;
+}
+
+@mixin guttered--xsm {
+    @extend %guttered--xsm;
+}
+
+@mixin guttered--sm {
+    @extend %guttered--sm;
+}
+
+@mixin guttered--lg {
+    @extend %guttered--lg;
+}
+
+@mixin guttered--xlg {
+    @extend %guttered--xlg;
+}
+

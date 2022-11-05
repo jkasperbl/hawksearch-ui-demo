@@ -1,0 +1,15 @@
+/*  DISABLED
+========================================================================== */
+
+/*
+ * Disable cursor events like click and hover and dim to 50%.
+ */
+
+.h-disabled {
+    filter: alpha(opacity = 50)!important;
+
+    pointer-events: none;
+
+    opacity: .5!important;
+}
+

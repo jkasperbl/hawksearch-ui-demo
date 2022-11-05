@@ -1,0 +1,14 @@
+/* CODE
+========================================================================== */
+
+/*
+ * Use an explicit font stack to ensure browsers render correct `line-height`.
+ */
+pre {
+    overflow: auto;
+}
+pre mark {
+    color: inherit;
+    border-bottom: 1px solid;
+    background: none;
+}

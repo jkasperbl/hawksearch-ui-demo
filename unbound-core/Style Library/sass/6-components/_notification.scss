@@ -1,0 +1,57 @@
+.notification {
+    @extend %flexbox;
+    align-items: stretch;
+    color: $colorWhite;
+    background: $colorHighlight;
+
+    &__icon {
+        @extend %flexbox;
+        align-items: center;
+        padding: $spacingXSm $spacingSm;
+        font-size: 125%;
+        background: rgba($colorWhite,.15);
+    }
+
+    &__content {
+        @extend %flexbox;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        padding: $spacingXSm $spacingSm;
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            text-decoration: underline;
+            color: $colorWhite;
+        }
+    }
+
+    &__close {
+        padding: $spacingXSm $spacingSm;
+        white-space: nowrap;
+
+        &:before {
+            @extend %iconStyle;
+            content: '\e82d';
+        }
+    }
+
+    a {
+        color: $colorWhite;
+    }
+
+    &--danger {
+        background: $colorDanger;
+    }
+
+    &--success {
+        background: $colorSuccess;
+    }
+
+    &--warning {
+        background: $colorWarning;
+    }
+}

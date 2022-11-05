@@ -1,0 +1,56 @@
+/* FORMS
+========================================================================== */
+
+/*
+* Basic form styling
+*/
+$formInputFontSize: $fontSizeBase !default;
+$formColorPLaceholder: $colorGrey !default;
+$formInputPadding: $spacingXSm !default;
+/*
+* For consistency we set height. The ($spacingXSm*2) accounts for the top and bottom padding
+* As things are set up by default, the form inputs are the same height as default size buttons
+* just in case of side-by-side display. Just something to think about if you are playing with
+* their defaults ;)
+*/
+$formInputHeight: $lineHeight+($spacingXSm*2) !default;
+$formInputBackground: $colorWhite !default;
+$formInputBorder: 1px solid $colorBorder !default;
+$formInputBorderRadius: 0 !default;
+$formInputColor: inherit !default;
+/*
+* Style disabled inputs
+*/
+$formInputDisabledBackground: $colorGreyLightest !default;
+$formInputDisabledBorderColor: null !default;
+$formInputDisabledColor: $colorGrey !default;
+/*
+* Style inputs when they have focus
+*/
+$formInputFocusBackground: null !default;
+$formInputFocusBorderColor: $colorHighlight !default;
+$formInputFocusColor: null !default;
+/*
+* Basic checkboxes and radios label styling
+*/
+$checkRadLabelBackground: transparent !default;
+$checkRadLabelcolor: inherit !default;
+$checkRadLabelBorderRadius: 0 !default;
+/*
+* Style checkboxes and radios label on hover
+*/
+$checkRadLabelHoverBackground: $colorGreyLightest !default;
+$checkRadLabelHoverColor: null !default;
+/*
+* Style checkboxes and radios label when input is checked
+*/
+$checkRadLabelCheckedBackground: transparent !default;
+$checkRadLabelCheckedColor: null !default;
+/*
+* Style checkboxes and radios label when input is disabled
+*/
+$checkRadLabelDisabledBackground: $colorGreyLight !default;
+$checkRadLabelDisabledColor: inherit !default;
+
+
+

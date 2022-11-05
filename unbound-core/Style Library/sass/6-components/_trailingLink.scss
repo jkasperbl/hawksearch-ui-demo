@@ -1,0 +1,32 @@
+/* TRAILING LINK
+========================================================================== */
+
+/*
+* For "read more" etc. use after blurbs, intros, and other text elements
+*/
+
+.trailingLink {	
+	@include font-size(12px);
+	font-weight:bold;
+	margin-left: 5px;
+	display:inline-block;
+	white-space: nowrap;
+	text-decoration:none;
+	&:before{
+		@include font-size(20px);
+		@include transition(all 0.2s ease-in-out);
+		content:'\00b7 \00b7 \00b7';
+	    line-height: 0;
+	    opacity: 0.5;
+	    margin-right: 2px;
+	    display:inline-block;
+	    vertical-align: -.2em;
+	}
+	&:hover{text-decoration:none;
+		&:before{
+			@include font-size(26px);
+			line-height:0;
+			opacity:.75;
+		}
+	}
+}

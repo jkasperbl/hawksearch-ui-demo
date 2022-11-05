@@ -1,0 +1,18 @@
+/*  CAPS
+========================================================================== */
+
+/*
+ * Apply capital case to an element (usually a `strong`).
+ */
+
+.h-caps {
+    text-transform: uppercase!important;
+}
+
+
+.h-unstyled {
+	font-weight:normal !important;
+	text-transform:initial !important;
+}
+
+

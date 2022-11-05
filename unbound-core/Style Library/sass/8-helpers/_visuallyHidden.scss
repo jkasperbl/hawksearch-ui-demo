@@ -1,0 +1,13 @@
+/*  VISUALLY HIDDEN
+========================================================================== */
+
+/*
+ * Hide content without resorting to `display:none;` so it is still
+ * available to screen readers
+ */
+
+.h-visuallyHidden {
+    @include visuallyHidden;
+}
+
+

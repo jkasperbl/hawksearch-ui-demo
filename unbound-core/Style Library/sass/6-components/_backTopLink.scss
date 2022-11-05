@@ -1,0 +1,41 @@
+/* BACK TO TOP
+========================================================================== */
+
+/*Anchor to top*/
+.backToTop-anchor {
+    position:absolute;
+    top:0;
+}
+a.backToTop {
+    @include font-size(14px);
+    line-height: 2.25;
+    display: inline-block;
+    padding: $spacingXSm*.25 $spacingSm;
+    border-radius: 40px;
+    @include order(1);
+    margin:$spacingSm 0;
+
+    /** Uncomment for fixed position **/
+    // position:fixed;
+    // bottom:0;
+    // right:0;
+    // background:red;
+    // display:none;
+    // &.backToTop--scrolled {
+    //     display:block;
+    // }
+
+    @include mq(med) {
+        margin:0;
+    }
+
+    &:before {
+        @extend %iconStyle;
+        @extend .icon-caret-up;
+    }
+
+    @include mq(med) {
+        float: right;
+        margin:2px 0 2px 5px;
+    }
+}

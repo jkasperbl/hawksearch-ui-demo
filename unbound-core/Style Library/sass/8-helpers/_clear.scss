@@ -1,0 +1,26 @@
+/*  Clear
+========================================================================== */
+
+/*
+* Clear - must be separated from floats to create EditorStyles
+*/
+
+/*
+* .h-clearfix is here as a helper class just in case you need it.
+* For use as an @extend or include (recommended in most cases) it is defined
+* in Style Library/sass/base/mixins/_clearfix.scss
+*
+*/
+
+.h-clearfix {
+    @extend %clearfix;
+}
+.h-clearBoth {
+    clear: both !important;
+}
+.h-clearLeft {
+    clear: left !important;
+}
+.h-clearRight {
+    clear: right !important;
+}

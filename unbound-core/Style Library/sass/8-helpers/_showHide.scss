@@ -1,0 +1,24 @@
+/*  SHOW HIDE
+========================================================================== */
+
+/*
+ * Toggle visibility based on screen size
+ * To use this feature just uncomment below and apply appropriate styles.
+ * To cover all screen sizes can be pretty code heavy so leaving to your discretion.
+ *
+ * Utilizes mixin in Style Library/sass/base/mixins/_mq-visbility.scss
+ *
+ * !!Hope to formalize/modularize this more in future releases - EB
+ *
+ */
+  .h-showMedUp{
+      @include hidden(xsm);
+      @include visible(med);
+  }
+  .h-hideMedUp{
+      @include hidden(med);
+  }
+
+
+
+

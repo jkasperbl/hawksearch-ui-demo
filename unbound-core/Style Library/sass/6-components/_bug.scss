@@ -1,0 +1,28 @@
+/* BUG
+========================================================================== */
+
+/*
+* Indicator bug. Number of messages, alerts, etc...
+*/
+.bug {
+    @include font-size($fontSizeXSm);
+
+    line-height: 20px;
+
+    position: absolute;
+    top: -7px;
+    left: -7px;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+
+    text-align: center;
+    vertical-align: .25em;
+
+    color: $colorWhite;
+    border-radius: 20px;
+    background: $colorHighlight;
+    box-shadow: 0 2px 2px rgba($colorBlack, .15);
+}

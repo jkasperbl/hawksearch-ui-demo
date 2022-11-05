@@ -1,0 +1,73 @@
+/* MAIN HEADER
+========================================================================== */
+
+.locSearch {
+    @extend %flexbox;
+
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+
+    padding-bottom: $spacingXSm;
+
+    text-transform: uppercase;
+
+    @include mq(med) {
+        @include flex-direction(row);
+
+        padding-top: $spacingXSm;
+    }
+    @include mq(lg) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+.locSearch-label {
+    margin: 0;
+    padding-right: $spacingSm;
+
+    white-space: nowrap;
+
+    color: $colorWhite;
+}
+.locSearch-inputWrap {
+    @extend %flexbox;
+    @extend .icon-location;
+
+    @include align-items(center);
+
+    padding: 2px;
+
+    background: $colorWhite;
+
+    &:before {
+        @extend %iconStyle;
+
+        margin-right: 0;
+
+        color: $colorGrey;
+    }
+}
+input[type='text'].locSearch-input {
+    width: auto;
+    height: auto;
+    margin: 0;
+    margin-right: $spacingXSm;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    border-width: 0;
+}
+.locSearch-submit {
+    padding-right: $spacingXSm;
+    padding-left: $spacingXSm;
+
+    font-weight: bold;
+    line-height: 1.7;
+
+    color: $colorWhite;
+    background: $colorBrandPrimary;
+}
+.locSearch.locSearch-mobile {
+    background: $colorBrandPrimary;
+}

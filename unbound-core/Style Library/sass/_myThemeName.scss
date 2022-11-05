@@ -1,0 +1,33 @@
+
+/*
+* !!! Only use this file if this is a DS or DSR engagement with MULTIPLE THEMES
+*
+* Replace "myThemeName" below your theme name
+*
+* If you have multiple themes, just copy this file and change the name and variable below
+* for each theme
+*/
+
+$themeName: myThemeName;
+
+/*
+* Here is where you override any default variables from "Style Library/base/variables.scss"
+* for this particular theme
+* For convenience, here are the ones you might be most likely to modify per theme
+	$colorBrandPrimary: ...;
+	$colorBrandSecondary: ...;
+	$colorBrandTertiary: ...;
+	$colorText: ...; //color overall body copy
+	$colorLinks: ...; //color basic links sitewide
+	$colorLinksHover: ...; //color basic links hover color sitewide
+	$fontDefault: ...;
+	$fontHighlight: ...;
+	$fontIcon: ...;
+*/
+
+
+/*
+* Now pull in main.scss
+*/
+
+@import "main.scss";

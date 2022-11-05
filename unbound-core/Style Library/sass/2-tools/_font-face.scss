@@ -1,0 +1,56 @@
+/* FONT Face
+========================================================================== */
+
+/*
+* To quickly declare you font face rules in "Style Library/sass/base/_fonts.scss"
+*
+	USAGE:
+
+	@include font-face(roboto,roboto-regular-webfont,normal);
+
+	*
+
+	"$font-name" is the name you will use to reference in your scss
+	(e.g. - $fontDefault: 'roboto', Helvetica, sans-serif !default;)
+
+	"$file-name" is the name of the font file(s) in "Style Library/fonts" without the file extension
+	So if the filename is "roboto-regular-webfont.woff" the value you enter would be
+	"roboto-regular-webfont"
+
+	"$font-weight" is the weight of the font file. For instance if you have both regular
+	and bold weights of roboto, you would use "normal" and "bold".
+	Or if many different weights, you could use numeric values like "300", "400", "500", etc.
+
+	"$svg" is an optional value.
+	By default we only pull in woff fonts as all modern browsers support it except for Opera Mini.
+	So in our default builds, Opera Mini will be served the backup fonts in the stack.
+	The exception here is the icon font as the communication there is more functional than aesthetic
+	(e.g. - menu and help icons) so we want to make sure they remain intact.
+	This is the default usage of the mixin in "Style Library/sass/components/icons" with $svg set to "true":
+	@include font-face(fontello,fontello,normal,true);
+
+*/
+
+
+@mixin font-face($font-name, $file-name, $font-weight, $svg: false) {
+	@if ($svg) {
+	    @font-face {
+	        font-family: #{$font-name};
+	        font-weight: #{$font-weight};
+	        font-style: normal;
+
+	        src: url('#{$pathFonts}#{$file-name}.woff') format('woff'),
+	        url('#{$pathFonts}#{$file-name}.svg') format('svg');
+	    }
+
+	}
+	@else {
+	    @font-face {
+	        font-family: #{$font-name};
+	        font-weight: #{$font-weight};
+	        font-style: normal;
+
+	        src: url('#{$pathFonts}#{$file-name}.woff') format('woff');
+	    }
+	}
+}

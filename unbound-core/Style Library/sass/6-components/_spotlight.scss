@@ -1,0 +1,74 @@
+/* FEATURE BLOCK
+========================================================================== */
+
+.spotlight {
+}
+.spotlight-inner {
+	@extend %flexbox;
+	@include flex-direction(column);
+	//center and limit width so doesnt get crazy huge or get funky aspect ratio on large screens
+	max-width:$startXXLg;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.spotlight-content {
+	@extend %noPhatBottom;
+	@extend %flexbox;
+	@include align-items(center);
+	@include flex-direction(column);
+	@include justify-content(center);
+	min-width:0;
+	padding-top:$spacingBase;
+	padding-right:$spacingBase;
+	padding-bottom:$spacingBase;
+	padding-left:$spacingBase;
+	p {
+		//margin-bottom:$spacingSm;
+	}
+	//stupid IE11 hack
+	* {
+		max-width:100%;
+	}
+}
+.spotlight-image {
+	@include flex(0 0 auto);
+	background-size:cover;
+	background-position:center center;
+	min-height: 200px;
+}
+.spotlight-heading {
+	@include font-size($h3Size);
+	margin-bottom:$spacingSm;
+}
+
+@include mq(med) {
+	.spotlight-inner {
+		@include flex-direction(row);
+        height: 40vmin;
+        min-height: 400px;
+	}
+	.spotlight-content {
+		//the 0% is another IE11 hack
+		@include flex(1 1 0%);
+		min-width:0;
+	}
+	.spotlight-image {
+		width:50%;
+	}
+	.spotlight--imgRight {
+		.spotlight-content {
+			@include order(1);
+		}
+		.spotlight-image {
+			@include order(2);
+		}
+	}
+}
+
+@include mq(lg) {
+	.spotlight-content {
+		padding-right:$spacingLg;
+		padding-left:$spacingLg;
+	}
+}

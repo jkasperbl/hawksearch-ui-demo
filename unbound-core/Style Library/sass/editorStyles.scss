@@ -1,0 +1,48 @@
+/* EDITOR.CSS
+========================================================================== */
+
+/*
+* The $desktopOnly variable is set to false as a default in Style Library/sass/base/mixins/_media-queries.scss
+* We override it here by setting it to true so when the css compiles, all media queries
+* entered using the media query mixin are stripped out so everything cascades into the
+* desktop styles.
+*/
+
+/*
+* Now pull in main.scss
+*/
+
+@import '1-settings/colors';
+@import '1-settings/buttons';
+@import '1-settings/fontFamilies';
+@import '1-settings/fontSize';
+@import '1-settings/lineHeight';
+@import '1-settings/spacingUnits';
+@import '1-settings/mediaQueries';
+
+@import '1-settings/filePaths';
+
+@import '2-tools/font-size';
+@import '2-tools/media-queries';
+
+
+@import '4-elements/headings';
+
+@import '6-components/paragraph';
+@import '6-components/button';
+
+
+@import '8-helpers/colors';
+@import '8-helpers/floats';
+@import '8-helpers/fontFamilies';
+@import '8-helpers/fontSizes';
+@import '8-helpers/overline';
+@import '8-helpers/strikeThrough';
+@import '8-helpers/underline';
+
+// required pulling clearfix out of floats
+// requires setting style individually within all headers
+// clean up colors list - becomes too long in WYSIWYG dropdown
+
+
+// requires cleaning up .btn - remove hovers, focus, active

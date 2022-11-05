@@ -1,0 +1,145 @@
+/* BANNER & VIDEO BANNER
+========================================================================== */
+// SEE VIDEO BANNER BELOW 
+
+.banner{
+    // @extend %flexbox;
+    // @include align-items(center);
+
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position:relative;
+
+    &.banner--fixedBackground {
+        background-attachment: fixed;
+    }
+    &[class*='banner--textBackground'] {
+        .bannerCopy {
+            padding: $spacingSm;
+        }
+    }  
+    @include mq(med) {
+        min-height: 500px;
+    }  
+}
+
+.banner-contained {
+    @extend %flexbox;
+    @include flex(1 1 0);
+    //for IE
+    width: 100%;
+    @include justify-content(center);    
+    @include mq(med) {
+        position: absolute;
+        top: $spacingBase;
+        right: $spacingBase;
+        bottom: $spacingBase;
+        left: $spacingBase;
+    }     
+}
+.bannerCopy {
+    @extend %noPhatBottom;
+    @include font-size(14px);
+    @include align-self(flex-end);    
+    text-align: center;
+    line-height: 1.2;
+    z-index:2;
+
+    @include mq(med) {
+        display: inline-block;
+        max-width: 60%;
+    }
+}
+.bannerCopy-heading {
+    @extend .h-pushXSmBottom;
+    @include responsive-font(8vw, $h4Size, $h3Size, $h3Size);
+    h3 & {
+        font-family:$fontDefault;
+    }
+}
+.banner--textLight {
+    color: $colorWhite;
+}
+.banner--textBackgroundLight {
+    .bannerCopy {
+        color: color-contrast(rgba($colorWhite, .8));
+        background: rgba($colorWhite, .8);
+    }
+}
+.banner--textBackgroundDark {
+    color: $colorWhite;
+
+    .bannerCopy {
+        color: color-contrast(rgba($colorBlack, .8));
+        background: rgba($colorBlack, .8);
+    }
+}
+
+// Video has banner alignments managed alongside Slider Main
+.bannerVideo {
+    // Note: this is extended and all specific alterations for video are below
+    @extend .banner;
+    padding:0;
+    background:none;
+    overflow:hidden;   
+    .banner-contained {
+    	display:block;
+    }       
+    video {
+        position:relative;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;  
+        margin:auto;      
+        width:100%;  
+        // height:100%;
+        z-index:-1;     
+    }
+    
+    @include mq(med) {
+        min-height:500px;
+        //padding:$spacingSm $spacingBase;
+        padding:0 !important;
+        .bannerCopy {
+            width:50%;
+            max-width:700px;
+        } 
+        // Note: video banners do not contain content similar to sliders
+        .banner-contained {
+            display:flex;
+            align-self:stretch;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            padding:$spacingBase;
+        }            
+        video {
+            position:absolute;
+        }     
+    }      
+    @media (max-aspect-ratio: 16/9) {
+
+        video {
+            // width: 300%;
+            // left: -100%;
+            // height: 300%;
+            // top: -100%;             
+
+        }
+    }     
+}
+@include mq(med) {
+    .banner--left,
+    .banner--left .bannerCopy {
+        text-align: left;
+    }
+    .banner--right,
+    .banner--right .bannerCopy {
+        text-align: right;
+    }
+}

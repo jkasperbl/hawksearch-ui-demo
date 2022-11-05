@@ -1,0 +1,63 @@
+/* MEDIA QUERIES
+========================================================================== */
+
+/*
+ * It’s not the best practice to define solid breakpoints up-front, preferring to
+ * modify your design when it needs it, rather than assuming you’ll want a
+ * change at ‘mobile’. However, this is the closest we can get to baked-in
+ * responsiveness. It’s flexible enough to allow you to set your own breakpoints
+ * but solid enough to accomodate most designs/layouts.
+ *
+ * Our options are:
+ *
+ * xsm (and up)
+ * xsm-only
+ * sm (and up)
+ * sm-only
+ * med (and up)
+ * med-only
+ * lg (and up)
+ * lg-only
+ * xlg (and up)
+ * xlg-only
+ * xxlg (and up)
+ *
+ * Not using a media query will, naturally, serve styles to all devices.
+ *
+ * `@include mq(xsm){ [styles here] }
+ *
+ * You may also use numeric values
+ *
+ * `@include mq(500px){ [styles here] }
+ * `@include mq(30em){ [styles here] }
+ * etc...
+ *
+ */
+
+/*
+ * Define when breakpoints start.
+ *
+ * !!! The xsm breakpoint is set to start at 1px for use in styles and mixins.
+ * I also hate those janky sites where everything breaks below 320px but that's just me ;)
+ */
+$startXSm: 1px!default;
+$startSm: 480px!default;
+$startMed: 641px!default;
+$startLg: 1024px!default;
+$startXLg: 1440px!default;
+$startXXLg: 1921px!default;
+
+/*
+ * Which is used to define end points.
+ */
+
+$endXSm: $startSm - 1px;
+$endSm: $startMed - 1px;
+$endMed: $startLg - 1px;
+$endLg: $startXLg - 1px;
+$endXLg: $startXXLg - 1px;
+
+
+
+
+

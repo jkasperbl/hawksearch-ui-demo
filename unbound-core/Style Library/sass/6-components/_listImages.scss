@@ -1,0 +1,54 @@
+/* FEATURE BLOCK
+========================================================================== */
+
+.listImages {
+}
+.listImages-heading {
+	text-align:center;
+}
+.listImages-figure {
+	@extend %noPhatBottom;
+}
+.listImages-figcaption {
+	padding-bottom:0;
+	border-bottom-width:0;
+	p {
+		margin-bottom:$spacingSm;
+	}
+}
+.listImages-subHeading {
+	@include font-size($h4Size);
+	margin-bottom:$spacingXSm;
+}
+.listImages--four {
+
+}
+.listImages-mainFeature {
+	@extend %flexbox;
+	@include flex-direction(column);
+	@include mq(med) {
+		@include flex-direction(row);
+		@include align-items(center);
+	}
+}
+.listImages-mainImage {
+    @include mq(med) {
+    	padding-right:$spacingBase;
+        //float:left;
+        //max-width:50%;
+        //margin-right:$spacingBase;
+    }
+}
+.listImages--six .row {
+	//clear:both;
+}
+.listImages-mainFeature--imageRight {
+    .listImages-mainImage {
+        @include mq(med) {
+        	@include order(2);
+            float:right;
+            padding-right:0;
+            padding-left:$spacingBase;
+        }
+    }
+}

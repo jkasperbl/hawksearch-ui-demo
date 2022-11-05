@@ -1,0 +1,149 @@
+/* HORIZONTAL NAV
+========================================================================== */ 
+
+/*
+* !!! we are using the class of .lastSelected instead of .selected to
+* target the current page link because iAPPS nav control adds .selected
+* to both the the direct parent LI of the current page link and also IT's parent
+* if it is a nested link
+ <nav class="navHorizontal">
+		<ul>
+		<li class="selected">
+			<a href="">We aint here</a>
+			<ul>
+				<li class="selected">
+					<a href="">We're actually here. Screwy huh?</a>
+				</li>
+			</ul>
+		</li>
+ </nav>
+ *
+ * There's a lil snippet in frontEnd.js that adds the class .lastSelected to the last
+ * instance of .selected to tell us where we really are.
+ */
+
+.navHorizontal ul {
+	list-style:none;
+	padding:0;
+	display:table;
+	width:100%;
+	border-bottom:1px solid $colorBorder;
+	li {
+		display:none;
+		a {
+			display:block;
+			padding:$spacingSm 0;
+			position:relative;
+			color:inherit;
+		}
+		&.selected {
+			display:table-header-group !important;
+			a {
+				border-top: 1px solid $colorBorder;
+				@extend .icon-caret-down;
+				&:before {
+					@extend %iconStyle;
+					position: absolute;
+					right: 0;
+					top: 50%;
+					margin-top: -11px;
+				}
+			}
+		}
+	}
+	&.is-open {
+		li {
+			&:not(.active) {
+				display:table-row;
+			}
+			&.selected a {
+				@extend .icon-close;
+			}
+		}
+	}
+
+}
+
+@include mq(med) {
+
+	.navHorizontal ul {
+		display:block;
+		border-top-width:0;
+		border-bottom:1px solid $colorBorder;
+		li {
+			display: inline-block !important;
+			margin: 0;
+			a {
+				@include font-size(14px);
+				padding: $spacingSm;
+				cursor: pointer;
+				display: inline-block;
+				clear: both;
+				margin-bottom:-1px;
+				border-bottom: 1px solid transparent;
+				&:hover {
+					text-decoration: none;
+					color: inherit;
+					border-color: $colorLinksHover;
+					color:$colorLinksHover;
+				}
+				.bug {
+					@include font-size(11px);
+					color: $colorWhite;
+					border-radius: 20px;
+					width: $spacingBase*1.75;
+					height: $spacingBase*1.75;
+					display: inline-block;
+					line-height: 1.75;
+					text-align: center;
+					-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+					-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+					box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+					position: absolute;
+					top: 80%;
+					left: 50%;
+					margin-left: -$spacingBase*.875;
+					&:after {
+						content: '';
+						position: absolute;
+						top: -5px;
+						left: 50%;
+						margin-left: -6px;
+						width: 0;
+						height: 0;
+						border-left: 6px solid transparent;
+						border-right: 6px solid transparent;
+						border-bottom: 7px solid $colorLinksHover;
+						z-index: -1;
+					}
+				}
+			}
+			&.selected {
+				display: inline-block !important;
+				font-weight:500;
+				a {
+					border-top-width:0;
+					color: inherit;
+					border-bottom: 2px solid $colorLinksHover;
+					color:$colorLinksHover;
+					&:hover {
+						cursor: default;
+					}
+					&:before {
+						display:none;
+					}
+				}
+			}
+		}
+	}
+	.navHorizontal--hiVis {
+		margin-bottom:$spacingLg;
+		ul li a {
+			@include font-size(16px);
+			text-transform:uppercase;
+			font-weight:bold;
+		}
+	}	
+
+}
+

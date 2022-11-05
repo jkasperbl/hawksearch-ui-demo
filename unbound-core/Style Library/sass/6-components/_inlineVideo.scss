@@ -1,0 +1,60 @@
+/* FEATURE BLOCK
+========================================================================== */
+
+.inlineVideo {
+    margin: 10px 0 25px;
+    width: 100%;
+    .inlineVideo--title {
+        margin: 0;
+        padding: 0;
+        span {
+            display: block;
+
+            margin: 0 0 10px;
+
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 22.8px;
+            line-height: 1.2;
+
+            color: #38414d;
+        }
+    }
+    .inlineVideo--content {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        padding-bottom: 56.25%;
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+            border: none;
+            outline: none;
+        }
+    }
+    .inlineVideo--subtitle {
+        margin: 0;
+        padding: 0;
+        span {
+            display: block;
+
+            margin: 10px 0 0;
+
+            font-size: 13.5px;
+            font-style: italic;
+            line-height: 14.8px;
+
+            color: #999;
+        }
+    }
+}

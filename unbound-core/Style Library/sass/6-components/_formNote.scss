@@ -1,0 +1,13 @@
+/* FORMNOTE
+========================================================================== */
+
+/*
+* snugs a note underneath a form element
+*/
+
+.formNote {
+  @include font-size(13px);
+  line-height:1.5;
+  margin-top:-$spacingBase;
+  color: $colorGrey;
+}

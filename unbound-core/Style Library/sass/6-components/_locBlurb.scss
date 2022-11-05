@@ -1,0 +1,39 @@
+/* MAIN HEADER
+========================================================================== */
+
+.locBlurb {
+    @extend .icon-location;
+
+    margin: 0;
+    margin-right: auto;
+    padding: 0;
+    padding: $spacingXSm;
+
+    list-style: none;
+
+    text-transform: uppercase;
+    font-weight: bold;
+
+    color: $colorWhite;
+
+    li {
+        display: inline-block;
+
+        &:before {
+            display: inline-block;
+
+            width: 1em;
+            height: 1em;
+
+            content: '·';
+            text-align: center;
+            line-height: 1;
+        }
+    }
+    > li:first-child:before {
+        display: none;
+    }
+    &:before {
+        @extend %iconStyle;
+    }
+}

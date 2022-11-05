@@ -1,0 +1,187 @@
+/* <TABLE>
+========================================================================== */
+
+/*
+* placing tables in the table-container div allows horizontal scrolling if the table overflows the page on small screens
+*/
+
+.tableContainer {
+    overflow-x: auto;
+
+    max-width: 100%;
+
+    -webkit-overflow-scrolling: touch;
+}
+/*
+* We need to use the "table" class so we only target the tables we want to style.
+* Bummer, I know but otherwise, iAPPS editor tables will break
+*/
+.table {
+    @include font-size(14px);
+
+    width: 100%;
+    margin-bottom: $spacingBase;
+
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    background-color: $colorWhite;
+
+    th {
+        @include font-size(16px);
+
+        font-family: $fontHighlight;
+
+        background: $colorGreyLightest;
+        word-wrap: break-word;
+    }
+    th,
+    td {
+        padding: $spacingXSm $spacingSm;
+
+        text-align: left;
+        vertical-align: top;
+
+        border: 1px solid $colorBorder;
+    }
+    &.table--flushSides {
+        th:first-child,
+        td:first-child {
+            padding-left: 0;
+        }
+        th:last-child,
+        td:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+
+/*
+* CSS only Responsive Tables
+* http://dbushell.com/2016/03/04/css-only-responsive-tables/
+* by David Bushell
+*/
+.table--responsive {
+    /*
+  * IE needs inline-block to position scrolling shadows otherwise use:
+  * display: block;
+  * max-width: min-content;
+  */
+    display: inline-block;
+    overflow-x: auto;
+
+    width: auto;
+    max-width: 100%;
+
+    vertical-align: top;
+
+    background: transparent;
+
+    //white-space: nowrap;
+}
+
+.table--responsive,
+.table--flip tbody {
+    background-color: $colorWhite;
+    //background: -webkit-radial-gradient(left ellipse, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, -webkit-radial-gradient(right ellipse, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+    //background:         radial-gradient(ellipse at left, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+    background-image: radial-gradient(ellipse at right, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, 0) 75%);
+    background-repeat: no-repeat;
+    background-attachment: scroll, scroll;
+    background-position: 100% center;
+    background-size: 10px 100%, 10px 100%;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.table--responsive td:first-child,
+.table--flip tbody tr:first-child {
+    background-image: -webkit-linear-gradient(left, white 50%, rgba(255, 255, 255, 0) 100%);
+    background-image:         linear-gradient(to right, white 50%, rgba(255, 255, 255, 0) 100%);
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+}
+
+.table--responsive td:last-child,
+.table--flip tbody tr:last-child {
+    background-image: -webkit-linear-gradient(right, white 50%, rgba(255, 255, 255, 0) 100%);
+    background-image:         linear-gradient(to left, white 50%, rgba(255, 255, 255, 0) 100%);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 20px 100%;
+}
+
+.table--responsive th {
+    text-align: left;
+
+    //text-transform: uppercase;
+    //background: $colorGreyLightest;
+}
+
+.table--responsive th,
+.table--responsive td {
+    //padding: 6px 12px;
+    min-width: 100px;
+}
+
+.table--flip {
+    @include flexbox;
+
+    overflow: hidden;
+
+    background: none;
+}
+
+.table--flip thead {
+    @extend %flexbox;
+
+    @include flex-shrink(0);
+
+    min-width: -webkit-min-content;
+    min-width:    -moz-min-content;
+    min-width:         min-content;
+}
+
+.table--flip tbody {
+    @extend %flexbox;
+
+    position: relative;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.table--flip tr {
+    @extend %flexbox;
+
+    @include flex-direction(column);
+    @include flex-shrink(0);
+
+    min-width: -webkit-min-content;
+    min-width:    -moz-min-content;
+    min-width:         min-content;
+}
+
+.table--flip td,
+.table--flip th {
+    display: block;
+}
+
+.table--flip td {
+    border-left: 0;
+    background-image: none !important;
+}
+
+.table--flip th:not(:last-child),
+.table--flip td:not(:last-child) {
+    border-bottom: 0;
+}
+/*
+ * Striped tables
+ */
+.table--striped {
+    tbody tr:nth-of-type(odd) {
+        background-color: $colorGreyLightest; /* Override this color in your theme stylesheet */
+    }
+}

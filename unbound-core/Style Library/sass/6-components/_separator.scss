@@ -1,0 +1,35 @@
+/* SEPARATOR
+========================================================================== */
+/* copy with lines on the sides like so
+	------------------------OR------------------------
+*/
+.separator {
+    overflow: hidden;
+
+    text-align: center;
+}
+.separator:before,
+.separator:after {
+    position: relative;
+
+    display: inline-block;
+
+    width: 25%;
+    height: 1px;
+
+    content: '';
+    vertical-align: middle;
+
+    background-color: $colorGreyLight;
+}
+.separator:before {
+    right: .5em;
+
+    margin-left: -50%;
+}
+.separator:after {
+    left: .5em;
+
+    margin-right: -50%;
+}
+

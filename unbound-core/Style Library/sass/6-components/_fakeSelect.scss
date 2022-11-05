@@ -1,0 +1,58 @@
+/* FAKE SELECT
+========================================================================== */
+
+.fakeSelectWrap {
+    position: relative;
+
+    border: 1px solid $colorBorder;
+    background: $formInputBackground;
+}
+
+.fakeSelectMask {
+    @extend .icon-triangle-down;
+
+    margin: 0;
+    padding-right: 42px;
+    padding-left: $spacingSm;
+
+    white-space: nowrap;
+    line-height: 37px;
+
+    &:before {
+        @extend %iconStyle;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 30px;
+        margin: 0;
+
+        font-size: 15px;
+        line-height: 37px;
+
+        color: $colorGrey;
+    }
+}
+.fakeSelect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    opacity: 0;
+}
+.fakeSelectWrap--sm {
+    @include font-size(14px);
+
+    // .fakeSelectMask,
+    // .fakeSelectMask:before {
+    //     line-height: 30px;
+    // }
+}

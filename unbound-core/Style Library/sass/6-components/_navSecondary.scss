@@ -1,0 +1,170 @@
+/* SECONDARY NAV
+========================================================================== */ 
+
+/*
+* !!! we are using the class of .lastSelected instead of .selected to
+* target the current page link because iAPPS nav control adds .selected
+* to both the the direct parent LI of the current page link and also IT's parent
+* if it is a nested link
+ <nav class="navSecondary">
+		<ul>
+		<li class="selected">
+			<a href="">We aint here</a>
+			<ul>
+				<li class="selected">
+					<a href="">We're actually here. Screwy huh?</a>
+				</li>
+			</ul>
+		</li>
+ </nav>
+ *
+ * There's a lil snippet in frontEnd.js that adds the class .lastSelected to the last
+ * instance of .selected to tell us where we really are.
+ */
+
+ .navSecondary {
+ 	@extend %clearfix;
+
+ 	@include font-size(13px);
+
+	ul {
+		@extend %clearfix;
+
+		margin:0;
+		padding:0;
+
+		list-style:none;
+	}
+
+	li {
+		@extend %clearfix;
+	}
+
+	.active a {
+		font-weight:bold;
+
+		@include mq(med) {
+		}
+	}
+
+	a {
+		display:block;
+
+		padding:$spacingXSm;
+
+		text-decoration:none;
+
+		color:$colorGrey;
+
+		&:hover {
+			//color:$colorSecondary;
+		}
+	}
+}
+.navSecondary-breadcrumb {
+    li {
+        display:none;
+
+        &:first-of-type {
+            display:block;
+
+            border-bottom:1px solid $colorGreyLighter;
+        }
+    }
+}
+@include mq(med) {
+    .navSecondary-breadcrumb {
+        li:first-of-type {
+            margin:0;
+
+            border-width:0;
+        }
+
+        a {
+            &:after {
+                @include iconStyle;
+
+                margin-right:0;
+                margin-left: $spacingXSm;
+
+                content: '\e815';
+
+                font-size:100%;
+
+                color: $colorGrey;
+            }
+        }
+    }
+}
+
+.navSecondaryToggle {
+	position:relative;
+	z-index:2;
+
+	display:inline-block;
+	float:right;
+
+	padding: $spacingXSm $spacingSm;
+
+	cursor:pointer;
+	text-align:center;
+
+	border-left: 1px solid $colorGreyLighter;
+
+	&:before {
+		@include iconStyle;
+
+		margin-right:0;
+
+		content: '\e813';
+
+		color: $colorGrey;
+	}
+
+	&.is-active {
+		&:before {
+			content: '\e812';
+		}
+	}
+
+	@include mq(med) {
+		display:none;
+	}
+}
+.navSecondary-links {
+	display:none;
+
+	border-bottom:1px solid $colorGreyLighter;
+
+	li {
+		float:left;
+
+		width:50%;
+	}
+}
+.is-active { 
+	.navSecondary-links, .navSecondary-breadcrumb li {
+		display:block;
+	}
+}
+@include mq(med) {
+	.navSecondary {
+		ul {
+			float:left;
+
+			li {
+				display:block;
+				float:left;
+
+				width:auto;
+				margin-right:$spacingXSm;
+			}
+		}
+	}
+
+	.navSecondary-links {
+		display:block;
+
+		border-width:0;
+	}
+}

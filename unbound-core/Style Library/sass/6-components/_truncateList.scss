@@ -1,0 +1,61 @@
+/* The stylings for the truncate list script in frontEnd.js
+========================================================================== */
+
+.truncateList {
+  li {
+    @include transition(all 0.2s ease-in-out);
+    transform-origin: top left;
+    transform: scale(1);
+    max-height:200px;
+    opacity:1;
+    &.is-hidden {
+      transform: scale(1,0);
+      max-height:0;
+      opacity:0;
+      margin:0;
+      padding:0;
+    }
+  }
+}
+.truncateList-toggle {
+    a {
+        @extend .icon-plus;
+        @include font-size(14px);
+        line-height:1.2;
+
+        position:relative;
+
+        display:inline-block;
+
+        margin-top:6px;
+        padding:$spacingXSm $spacingSm;
+
+        outline:0;
+        background:$colorGreyLightest;
+        border-top:3px solid $colorGreyLighter;
+
+        &:before {
+            @extend %iconStyle;
+
+        }
+
+        &:after {
+            position:absolute;
+            top:-7px;
+            left:5px;
+
+            width: 0; 
+            height: 0;
+
+            content:'';
+
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid $colorGreyLighter; 
+            border-left: 7px solid transparent;
+        }
+    }
+
+    &.is-active a {
+        @extend .icon-minus;
+    }
+}

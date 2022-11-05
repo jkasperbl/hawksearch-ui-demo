@@ -1,0 +1,32 @@
+/* FONT SIZE
+========================================================================== */
+/*
+  * base font size applied to body text
+! * !Going below 15px for base font size is NOT recommended for readability on small devices.
+*/
+$fontSizeBase: 16px !default;
+
+// amount of px adjustment
+$scale: 4;
+
+/*
+ * Headings sizes (in pixels).
+ */
+$h6Size: $fontSizeBase !default;
+$h5Size: $h6Size + $scale !default;
+$h4Size: $h5Size + $scale !default;
+$h3Size: $h4Size + $scale !default;
+$h2Size: $h3Size + $scale !default;
+$h1Size: $h2Size + $scale !default;
+
+/*
+ * Ancillary sizes (in pixels).
+ */
+$fontSizeSm: $fontSizeBase - $scale !default;
+//chop the scale in half or xsm text is illegible
+$fontSizeXSm: $fontSizeSm - $scale/2 !default;
+
+$fontSizeLg: $fontSizeBase + $scale !default;
+$fontSizeXLg: $fontSizeLg + $scale !default;
+
+

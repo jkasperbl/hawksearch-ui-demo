@@ -1,0 +1,146 @@
+/* LOCATION RESULTS
+========================================================================== */
+
+.locationResults-heading {
+    text-transform:initial;
+    font-family:$fontHighlight;
+}
+.locationResults-list {
+    @extend %flexbox;
+
+    @include font-size(14px);
+    @include flex-wrap(wrap);
+    @include justify-content(flex-start);
+
+    padding: 0;
+
+    list-style: none;
+
+    counter-reset: numbers;
+
+    > li {
+        @extend %noPhatBottom;
+        position: relative;
+        padding: $spacingSm 0 $spacingSm $spacingBase*1.5;
+        margin-bottom:$spacingBase;
+        .btn {
+            @include font-size(14px);
+            margin:$spacingSm 0 0 0;
+            padding:$spacingXSm*.5 $spacingSm;
+        }
+        p {margin:0}
+        &:before {
+            position: absolute;
+            top: $spacingSm;
+            left: 0;
+
+            width: $spacingBase;
+            height: $spacingBase;
+            border-radius:50%;
+
+            content: '' counter(numbers, decimal) '';
+            counter-increment: numbers;
+            text-align: center;
+
+            color: $colorBrandPrimary;
+            background: $colorWhite;
+            border:1px solid $colorBrandPrimary;
+            font-weight:bold;
+            line-height:1.75;
+        }        
+        @include mq(med) {
+            @include flex(1 1 50%);
+            max-width:50%;
+        }
+        @include mq(lg) {
+            @include flex(1 1 33.23333%);   
+            max-width:33.233333%;         
+        }
+        @include mq(xlg){
+            .btn {margin:$spacingXSm 0 0 0;}
+            @include flex(1 1 25%);   
+            max-width:25%; 
+            // padding-bottom:$spacingXLg*.8;             
+            // p:last-of-type {
+            //     padding:0;
+            //     position:absolute;
+            //     bottom:0;
+            // }                       
+        }
+
+    }
+}
+.locationResults-name {
+    @include font-size(18px);
+    line-height:1.3;
+    margin-bottom:0;
+    text-transform:initial;
+}
+.locationResults-miles {
+    @include font-size(14px);
+    font-weight:bold;
+    margin:0 0 $spacingSm*1.5 0;
+}
+.locationResults-phone,
+.locationResults-fax {
+    &:before {
+        @extend %iconStyle;
+    }
+}
+.locationResults-phone {
+    @extend .icon-mobile;
+}
+.locationResults-fax {
+    @extend .icon-printer;
+}
+.locationResults {
+    &.stateListing {
+       .locationResults-list > li {
+           &:before {
+            display:none;
+           } 
+       }
+    }
+}
+.locationResults--hours {
+    .toggleLink {
+        &::after {
+            content: '\e813';
+            display:inline-block;
+            font-family:$fontIcon;
+            margin-left:$spacingXSm;
+        }
+        &.is-active::after {
+            content: '\e812';
+        }
+    }
+    .toggleLinkTarget {
+        border-bottom:1px solid $colorGreyLighter;
+        padding-bottom:$spacingXSm;
+        margin-bottom:$spacingSm;
+    }
+}
+.locationResults--time {
+    span:first-of-type {margin-left:$spacingBase*.75}
+    font-size:13px;
+    display:flex;
+    justify-content:space-between;
+}
+// Preview window over integrated map in Dev
+.gm-style-iw.gm-style-iw-c {
+    max-width:250px
+}
+.infowindow {
+    // Location heading
+    h2 {font-size:$h6Size;}
+    .btn, .btn:hover {
+        background:transparent;
+        border-color:transparent;
+        padding:0;
+        color:$colorBrandPrimary;
+        text-decoration:underline;
+        width:100%;
+        text-align:left;
+
+    }
+}

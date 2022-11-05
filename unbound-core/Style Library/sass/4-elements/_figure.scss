@@ -1,0 +1,19 @@
+/* FIGURE
+========================================================================== */
+
+figure {
+	text-align: center;
+	margin: 0 0 $spacingBase 0;
+	position: relative;
+	
+	/*
+	* Image captions
+	*/
+	figcaption {
+		@include font-size($h6Size);
+		display: block;
+		color: $colorGrey;
+		padding-bottom: 1em;
+		margin-top: 1em;
+	}
+}
