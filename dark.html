@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Hawksearch Demo (default)</title>
+    <title>Hawksearch Handlebars UI Demo</title>
     <meta name="description" content="This is a demo of the Hawksearch Handlebars UI" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
@@ -13,17 +13,24 @@
 
         Hawksearch.config = {
           clientId: "f51060e1c38446f0bacdf283390c37e8",
+          css: {
+            customStyles: ['dark.css']
+          },
           urlPrefixes: {
             assets: "//dev.hawksearch.net",
             content: "//preview-dev.hawksearch.net/elasticdemo",
           }
         };
     </script>
-    <script src="node_modules/@bridgeline-digital/hawksearch-handlebars-ui/dist/hawksearch-handlebars-ui.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@1.0.11/dist/hawksearch-handlebars-ui.js" defer></script>
     <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+      
       body {
-        font-family: Arial, Helvetica, sans-serif;
+        background: #121212;
+        font-family: 'Source Sans Pro', sans-serif;
         font-size: 16px;
+        color: #D5D5D5;
       }
 
       .layout-container {
