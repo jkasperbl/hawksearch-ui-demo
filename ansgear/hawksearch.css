@@ -11,3 +11,7 @@
 .search-field input {
     height: 54px;
 }
+
+.autocomplete {
+    z-index: 1000;
+}
