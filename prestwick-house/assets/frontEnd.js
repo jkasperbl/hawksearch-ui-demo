@@ -617,7 +617,7 @@ function drawer(options) {
    });
 }
 
-// #### Start Hawksearch ####
+// #### Start HawkSearch ####
 
 if (typeof hawk_config === 'undefined') {
     var hawk_config = {
@@ -2056,7 +2056,7 @@ function setCookie(name, value, expiry) {
     document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-// #### End Hawksearch ####
+// #### End HawkSearch ####
 var main = function() {
 	"use strict";
 	

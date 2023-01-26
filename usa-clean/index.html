@@ -549,11 +549,11 @@
     <!-- snippet location htmlhead -->
     <meta name="robots" content="noindex" />
     <script type="text/javascript">
-        var Hawksearch = Hawksearch || {};
+        var HawkSearch = HawkSearch || {};
 
-        Hawksearch.config = {
+        HawkSearch.config = {
           clientId: "f51060e1c38446f0bacdf283390c37e8",
-          searchUrl: '/hawksearch-ui-demo/usa-clean',
+          searchUrl: window.location.pathname,
           css: {
             customStyles: 'hawksearch.css'
           },
@@ -563,7 +563,7 @@
           }
         };
     </script>
-    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@1.0.16/dist/hawksearch-handlebars-ui.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@2.0.0-beta.1/dist/hawksearch-handlebars-ui.js" defer></script>
   </head>
   <body
     class="csscolumns papaSupermarket-layout--left-sidebar papaSupermarket-style--modern papaSupermarket-pageType--search papaSupermarket-page--pages-search emthemesModez-productUniform papaSupermarket--showAllCategoriesMenu has-faceted has-result"

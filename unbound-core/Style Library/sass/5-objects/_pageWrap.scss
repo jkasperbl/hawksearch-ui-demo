@@ -1,9 +1,0 @@
-/* PAGE WRAP
-========================================================================== */ 
-
-.pageWrap {
-	@extend %flexbox;
-	@include flex-direction(column);
-	min-height:100vh;
-	height:100vh;
-}

@@ -2,37 +2,59 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Hawksearch Handlebars UI (Prestwick House)</title>
+    <title>HawkSearch Handlebars UI (Prestwick House)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
-    <link rel="stylesheet" href="./assets/main.css" type="text/css">
+    <link rel="stylesheet" href="./assets/main.css" type="text/css" />
     <script type="text/javascript">
-      var Hawksearch = Hawksearch || {};
+      var HawkSearch = HawkSearch || {};
 
-      Hawksearch.config = {
+      HawkSearch.config = {
         clientId: "f51060e1c38446f0bacdf283390c37e8",
-        searchUrl: "/hawksearch-ui-demo/prestwick-house",
+        searchUrl: window.location.pathname,
         css: {
-          customStyles: '/prestwick-house/assets/main.css',
-          defaultStyles: false
+          defaultStyles: false,
         },
-        templates: {
-          searchWithinFacet: 'search-within-facet-template',
-          facetsList: 'facets-list-template',
-          facetWrapper: 'facet-wrapper-template',
-          checkboxListFacet: 'checkbox-list-facet-template',
-          searchResults: 'search-results-template',
-          sorting: 'sorting-template',
-          pageSize: 'page-size-template',
-          pagination: 'pagination-template',
-          searchResultsList: 'search-results-list-template',
-          searchResultsItem: 'search-results-item-template',
-        }
+        components: {
+          "search-within-facet": {
+            template: "search-within-facet-template",
+          },
+          "facets-list": {
+            template: "facets-list-template",
+          },
+          "facet-wrapper": {
+            template: "facet-wrapper-template",
+          },
+          "checkbox-list-facet": {
+            template: "checkbox-list-facet-template",
+          },
+          "search-results": {
+            template: "search-results-template",
+          },
+          sorting: {
+            template: "sorting-template",
+          },
+          "page-size": {
+            template: "page-size-template",
+          },
+          pagination: {
+            template: "pagination-template",
+          },
+          "search-results-list": {
+            template: "search-results-list-template",
+          },
+          "search-results-item": {
+            template: "search-results-item-template",
+          },
+        },
+        shadowDom: false
       };
-
     </script>
     <script src="custom.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@1.0.16/dist/hawksearch-handlebars-ui.js" defer></script>
+    <script
+      src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@2.0.0-beta.1/dist/hawksearch-handlebars-ui.js"
+      defer
+    ></script>
   </head>
 
   <body>
@@ -40,40 +62,76 @@
       <div class="headerMain-util">
         <div class="headerMain-utilInner">
           <div class="headerMain-utilZone01">
-            <i class="placeholder" data-placeholderid="6132"></i><div class="logoMain">
-            <a href="http://prestwick-house.design.iapps.com/t-26-search.shtml"><img src="./assets/logo.png" alt="Prestwick House logo"></a>
-          </div>
-            
+            <i class="placeholder" data-placeholderid="6132"></i>
+            <div class="logoMain">
+              <a
+                href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                ><img src="./assets/logo.png" alt="Prestwick House logo"
+              /></a>
+            </div>
           </div>
           <!--/.headerMain-utilZone01-->
-          <div class="headerMain-utilZone02">  
-            <i class="placeholder" data-placeholderid="13899"></i><div class="searchBoxContainer">
-         <div class="searchBox searchBox--main hawk">
-          <label for="searchMain" class="h-visuallyHidden">Search</label>
-          <input id="searchMain" type="text" placeholder="Search" name="" class="searchBox-textField">
-          <a class="searchBox-submit"></a>
-        </div> 
-        <div class="searchResults-autocomplete" style="display: none;"></div>
-        </div>               
+          <div class="headerMain-utilZone02">
+            <i class="placeholder" data-placeholderid="13899"></i>
+            <div class="searchBoxContainer">
+              <div class="searchBox searchBox--main hawk">
+                <label for="searchMain" class="h-visuallyHidden">Search</label>
+                <input
+                  id="searchMain"
+                  type="text"
+                  placeholder="Search"
+                  name=""
+                  class="searchBox-textField"
+                />
+                <a class="searchBox-submit"></a>
+              </div>
+              <div
+                class="searchResults-autocomplete"
+                style="display: none"
+              ></div>
+            </div>
           </div>
           <!--/.headerMain-utilZone021-->
           <div class="headerMain-utilZone03">
-                <nav class="navUtil">
-        <ul>
-          <i class="placeholder" data-placeholderid="3712"></i><li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">My Resource Library</a></li><li class="hasChildren"><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">My Account</a>
-            <ul>
-              <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">My profile</a></li>
-              <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Log Out</a></li>
-            </ul>
-          </li>          
-          <i class="placeholder" data-placeholderid="11251"></i>
-          <!--li><a href="">Sign In</a></li-->        
-          </ul>
-      </nav>
-      <!--/.navUtility-->
-    
-              <i class="placeholder" data-placeholderid="8267"></i><a class="cartStatus"><span class="bug cartStatus-bug">13</span></a>
-                     
+            <nav class="navUtil">
+              <ul>
+                <i class="placeholder" data-placeholderid="3712"></i>
+                <li>
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >My Resource Library</a
+                  >
+                </li>
+                <li class="hasChildren">
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >My Account</a
+                  >
+                  <ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >My profile</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Log Out</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <i class="placeholder" data-placeholderid="11251"></i>
+                <!--li><a href="">Sign In</a></li-->
+              </ul>
+            </nav>
+            <!--/.navUtility-->
+
+            <i class="placeholder" data-placeholderid="8267"></i
+            ><a class="cartStatus"
+              ><span class="bug cartStatus-bug">13</span></a
+            >
           </div>
           <!--/.headerMain-utilZone03-->
         </div>
@@ -84,73 +142,239 @@
         <div class="headerMain-mainInner">
           <div class="headerMain-mainZone01">
             <nav class="navMain">
-        <ul>
-            <i class="placeholder" data-placeholderid="8626"></i><li class="hasChildren"><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">First Link 01</a>
-                <ul>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a>
-                        <ul>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                        </ul>
+              <ul>
+                <i class="placeholder" data-placeholderid="8626"></i>
+                <li class="hasChildren">
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >First Link 01</a
+                  >
+                  <ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                      <ul>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a></li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a></li>
-                </ul>
-            </li><li class="hasChildren is-mega"><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Link 02</a>
-                <ul>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a>
-                        <ul>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                        </ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
                     </li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a>
-                        <ul>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                        </ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
                     </li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a>
-                        <ul>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                        </ul>
+                  </ul>
+                </li>
+                <li class="hasChildren is-mega">
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >Second Link 02</a
+                  >
+                  <ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                      <ul>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a>
-                        <ul>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                        </ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                      <ul>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                </ul>
-            </li><li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Link 03</a></li><li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Fourth Link 04</a></li><li class="hasChildren"><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Fifth Link 05</a>
-                <ul>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a>
-                        <ul>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                            <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Third Level Link</a></li>
-                        </ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                      <ul>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a></li>
-                    <li><a href="http://prestwick-house.design.iapps.com/t-26-search.shtml">Second Level Link</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <!--/.navMain-->                 
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                      <ul>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >Third Link 03</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >Fourth Link 04</a
+                  >
+                </li>
+                <li class="hasChildren">
+                  <a
+                    href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                    >Fifth Link 05</a
+                  >
+                  <ul>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                      <ul>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                            >Third Level Link</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="http://prestwick-house.design.iapps.com/t-26-search.shtml"
+                        >Second Level Link</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <!--/.navMain-->
           </div>
           <!--/.headerMain-mainZone01-->
-          <div class="headerMain-mainZone02">   
-          </div>
+          <div class="headerMain-mainZone02"></div>
           <!--/.headerMain-minZone02-->
           <div class="headerMain-mainZone03">
-            <div class="mobileDrawerToggle drawerToggle" data-for="globals-mobile" data-mobile="true"> Menu</div>
+            <div
+              class="mobileDrawerToggle drawerToggle"
+              data-for="globals-mobile"
+              data-mobile="true"
+            >
+              Menu
+            </div>
           </div>
           <!--/.headerMain-mainZone03-->
         </div>
@@ -166,20 +390,31 @@
             <div class="content">
               <div class="section">
                 <div class="row">
-                  <div class="column med-8 search-results-sidebar" style="padding-top: 1em;">
+                  <div
+                    class="column med-8 search-results-sidebar"
+                    style="padding-top: 1em"
+                  >
                     <i class="placeholder" data-placeholderid="18695"></i>
                     <div id="campaignZone-2" class="section campaignZone"></div>
-                    <div class="section facetsContainerWrapper" style="padding-top: 0px;">
+                    <div
+                      class="section facetsContainerWrapper"
+                      style="padding-top: 0px"
+                    >
                       <div class="facetsContainer">
                         <hawksearch-facets-list></hawksearch-facets-list>
                       </div>
                     </div>
                   </div>
-                  <div class="column med-16 srch-results" style="padding-top: 1em;">
+                  <div
+                    class="column med-16 srch-results"
+                    style="padding-top: 1em"
+                  >
                     <div class="search-header-container">
                       <h1 class="search-header">Search Results</h1>
                     </div>
-                    <div class="section searchResults-pagination searchResults-top-pagination">
+                    <div
+                      class="section searchResults-pagination searchResults-top-pagination"
+                    >
                       <div>
                         <hawksearch-sorting></hawksearch-sorting>
                         <!-- <div class="searchResults-list-grid">
@@ -197,8 +432,18 @@
                       <div>
                         <div>
                           <div id="FeaturedTop">
-                            <a href="https://www.prestwickhouse.com/grammar-for-writing" target="_blank" title="Zone 1 Image" class="hawk-campaign" data-banner-id="118236" data-campaign-id="119064">
-                              <img src="https://dev.hawksearch.net/assets/1800/G4W-Banner.png" alt="Grammar for Writing">
+                            <a
+                              href="https://www.prestwickhouse.com/grammar-for-writing"
+                              target="_blank"
+                              title="Zone 1 Image"
+                              class="hawk-campaign"
+                              data-banner-id="118236"
+                              data-campaign-id="119064"
+                            >
+                              <img
+                                src="https://dev.hawksearch.net/assets/1800/G4W-Banner.png"
+                                alt="Grammar for Writing"
+                              />
                             </a>
                           </div>
                         </div>
@@ -216,7 +461,12 @@
     <template id="search-within-facet-template">
       <div class="search_within">
         <i class="icon-search"></i>
-        <input type='text' hawksearch-search-input value='{{query}}' placeholder='Search within' />
+        <input
+          type="text"
+          hawksearch-search-input
+          value="{{query}}"
+          placeholder="Search within"
+        />
         <i class="search-within-clear icon-close"></i>
         <!-- <hawksearch-autocomplete></hawksearch-autocomplete> -->
       </div>
@@ -224,81 +474,81 @@
     <template id="facets-list-template">
       <div class="facetsContainer-list">
         {{#each facets}}
-          <hawksearch-facet-wrapper hawksearch-facet-id="{{id}}"></hawksearch-facet-wrapper>
+        <hawksearch-facet-wrapper
+          hawksearch-facet-id="{{id}}"
+        ></hawksearch-facet-wrapper>
         {{/each}}
       </div>
     </template>
     <template id="facet-wrapper-template">
       <!-- <button hawksearch-facet-heading class="facet__heading{{attribute ' facet__heading--collapsible' collapsible}}"> -->
-      {{#if (eq type "checkbox")}}
-        {{#if collapsible}}
-          {{#if collapsed}}
-            <button hawksearch-facet-heading class="searchAccordion">
-              {{title}}
-              <i class="icon-caret-down"></i>
-              <!-- {{#if tooltip}}
+      {{#if (eq type "checkbox")}} {{#if collapsible}} {{#if collapsed}}
+      <button hawksearch-facet-heading class="searchAccordion">
+        {{title}}
+        <i class="icon-caret-down"></i>
+        <!-- {{#if tooltip}}
                   <hawksearch-tooltip text="{{tooltip}}"></hawksearch-tooltip>
               {{/if}} -->
-              <!-- {{#if collapsible}}
+        <!-- {{#if collapsible}}
                   <hawksearch-icon name="{{if-else collapsed 'chevron-right' 'chevron-down'}}" size="1.5em" class="facet__heading__toggle"></hawksearch-icon>
               {{/if}} -->
-            </button>
-          {{/if}}
-          {{#unless collapsed}}
-            <!-- <button hawksearch-facet-heading class="searchAccordion"> -->
-            <button hawksearch-facet-heading class="searchAccordion searchAccordionActive">
-              {{title}}
-              <i class="icon-caret-down"></i>
-              <!-- {{#if tooltip}}
+      </button>
+      {{/if}} {{#unless collapsed}}
+      <!-- <button hawksearch-facet-heading class="searchAccordion"> -->
+      <button
+        hawksearch-facet-heading
+        class="searchAccordion searchAccordionActive"
+      >
+        {{title}}
+        <i class="icon-caret-down"></i>
+        <!-- {{#if tooltip}}
                   <hawksearch-tooltip text="{{tooltip}}"></hawksearch-tooltip>
               {{/if}} -->
-              <!-- {{#if collapsible}}
+        <!-- {{#if collapsible}}
                   <hawksearch-icon name="{{if-else collapsed 'chevron-right' 'chevron-down'}}" size="1.5em" class="facet__heading__toggle"></hawksearch-icon>
               {{/if}} -->
-            </button>
-          {{/unless}}
-          {{#unless collapsed}}
-            <div class="searchAccordionPanel" style="display: block;">
-              <!-- <div class="facetValueContainer" style="padding-bottom: 20px;">
+      </button>
+      {{/unless}} {{#unless collapsed}}
+      <div class="searchAccordionPanel" style="display: block">
+        <!-- <div class="facetValueContainer" style="padding-bottom: 20px;">
                 <a href="#" class="reset_facet" data-facet-name="media_format">Remove Format Filters</a>
               </div> -->
-              <!-- {{#if searchable}}
+        <!-- {{#if searchable}}
                 <input type="text" placeholder="Quick Lookup" hawksearch-facet-search value="{{filter}}" class="facet__search" />
               {{/if}} -->
-              {{#if (eq type "checkbox")}}
-                <hawksearch-checkbox-list-facet hawksearch-facet></hawksearch-checkbox-list-facet>
-              {{/if}}
-              <!-- {{#if (eq type "color")}}
+        {{#if (eq type "checkbox")}}
+        <hawksearch-checkbox-list-facet
+          hawksearch-facet
+        ></hawksearch-checkbox-list-facet>
+        {{/if}}
+        <!-- {{#if (eq type "color")}}
                 <hawksearch-color-facet hawksearch-facet></hawksearch-color-facet>
               {{/if}} -->
-              <!-- {{#if (eq type "link")}}
+        <!-- {{#if (eq type "link")}}
                 <hawksearch-link-list-facet hawksearch-facet></hawksearch-link-list-facet>
               {{/if}} -->
-              <!-- {{#if (eq type "range-slider")}}
+        <!-- {{#if (eq type "range-slider")}}
                 <hawksearch-range-slider-facet hawksearch-facet></hawksearch-range-slider-facet>
               {{/if}} -->
-              <!-- {{#if (eq type "recent-searches")}}
+        <!-- {{#if (eq type "recent-searches")}}
                 <hawksearch-recent-searches-facet hawksearch-facet></hawksearch-recent-searches-facet>
               {{/if}} -->
-              <!-- {{#if (eq type "related-searches")}}
+        <!-- {{#if (eq type "related-searches")}}
                 <hawksearch-related-searches-facet hawksearch-facet></hawksearch-related-searches-facet>
               {{/if}} -->
-              <!-- {{#if (eq type "search")}}
+        <!-- {{#if (eq type "search")}}
                 <hawksearch-search-within-facet hawksearch-facet></hawksearch-search-within-facet>
               {{/if}} -->
-              <!-- {{#if (eq type "size")}}
+        <!-- {{#if (eq type "size")}}
                 <hawksearch-size-facet hawksearch-facet></hawksearch-size-facet>
               {{/if}} -->
-            </div>
-          {{/unless}}
-        {{/if}}
-      {{/if}}
+      </div>
+      {{/unless}} {{/if}} {{/if}}
     </template>
     <template id="checkbox-list-facet-template">
       <div class="checkbox-list-facet">
-        {{> custom-facet-checkbox-list values}}
-        {{#if showToggle}}
-            <a hawksearch-facet-toggle class="facet__toggle">{{toggleText}}</a>
+        {{> custom-facet-checkbox-list values}} {{#if showToggle}}
+        <a hawksearch-facet-toggle class="facet__toggle">{{toggleText}}</a>
         {{/if}}
       </div>
     </template>
@@ -306,13 +556,11 @@
       <div class="searchResults-sortby-top sorting">
         <span class="top-sort-label" for="top-sort">Sort by:</span>
         <select hawksearch-sort name="top-sort" id="top-sort">
-          {{#each options}}
-            {{#if selected}}
-              <option value="{{value}}" selected>{{title}}</option>
-            {{else}}
-              <option value="{{value}}">{{title}}</option>
-            {{/if}}
-          {{/each}}
+          {{#each options}} {{#if selected}}
+          <option value="{{value}}" selected>{{title}}</option>
+          {{else}}
+          <option value="{{value}}">{{title}}</option>
+          {{/if}} {{/each}}
         </select>
       </div>
     </template>
@@ -320,38 +568,38 @@
       <div class="searchResults-perpage-top">
         <span class="top-perpage-label" for="top-perpage">Show:</span>
         <select hawksearch-page-size name="top-perpage" id="top-perpage">
-          {{#each options}}
-            {{#if selected}}
-              <option value="{{pageSize}}" selected>{{title}}</option>
-            {{else}}
-              <option value="{{pageSize}}">{{title}}</option>
-            {{/if}}
-          {{/each}}
+          {{#each options}} {{#if selected}}
+          <option value="{{pageSize}}" selected>{{title}}</option>
+          {{else}}
+          <option value="{{pageSize}}">{{title}}</option>
+          {{/if}} {{/each}}
         </select>
       </div>
     </template>
     <template id="pagination-template">
       <div class="searchResults-pagination-top">
-        <nav class='pagination'>
+        <nav class="pagination">
           <ul>
             {{#if displayPreviousLink}}
-              <li class="pag-prev">
-                <a hawksearch-page='{{subtract page 1}}' data-pageno="1">&lt; Prev Page</a>
-              </li>
-            {{/if}}
-            {{#each pages}}
-              <li>
-                {{#if (eq this @root.page)}}
-                  <a hawksearch-page='{{this}}' class='active'>{{this}}</a>
-                {{else}}
-                  <a hawksearch-page='{{this}}'>{{this}}</a>
-                {{/if}}
-              </li>
-            {{/each}}
-            {{#if displayNextLink}}
-              <li>
-                <a hawksearch-page='{{add page 1}}' class='next'>Next Page &gt;</a>
-              </li>
+            <li class="pag-prev">
+              <a hawksearch-page="{{subtract page 1}}" data-pageno="1"
+                >&lt; Prev Page</a
+              >
+            </li>
+            {{/if}} {{#each pages}}
+            <li>
+              {{#if (eq this @root.page)}}
+              <a hawksearch-page="{{this}}" class="active">{{this}}</a>
+              {{else}}
+              <a hawksearch-page="{{this}}">{{this}}</a>
+              {{/if}}
+            </li>
+            {{/each}} {{#if displayNextLink}}
+            <li>
+              <a hawksearch-page="{{add page 1}}" class="next"
+                >Next Page &gt;</a
+              >
+            </li>
             {{/if}}
           </ul>
         </nav>
@@ -361,9 +609,9 @@
       <div class="section rslt-products">
         <ul class="lst-rslt-searchResults row">
           {{#each items}}
-            <li class="searchResult-item xsm-24 sm-12 med-8">
-              <hawksearch-search-results-item></hawksearch-search-results-item>
-            </li>
+          <li class="searchResult-item xsm-24 sm-12 med-8">
+            <hawksearch-search-results-item></hawksearch-search-results-item>
+          </li>
           {{/each}}
         </ul>
       </div>
@@ -371,19 +619,17 @@
     <template id="search-results-item-template">
       <div class="rslt-product">
         <div class="rslt-product-container">
-          <a hawksearch-link href='{{url}}'>
+          <a hawksearch-link href="{{url}}">
             <h3>{{title}}</h3>
             <div class="rslt-content subhead"></div>
             <div class="rslt-content media-format flexible">
               <p></p>
             </div>
             <div class="image_container">
-              <img hawksearch-image src='{{imageUrl}}' alt='{{title}}' />
+              <img hawksearch-image src="{{imageUrl}}" alt="{{title}}" />
             </div>
             {{#unless (eq salePrice undefined)}}
-              <div class='rslt-price'>
-                {{currency salePrice 0}}
-              </div>
+            <div class="rslt-price">{{currency salePrice 0}}</div>
             {{/unless}}
           </a>
         </div>

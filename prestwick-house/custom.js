@@ -19,5 +19,5 @@ addEventListener('hawksearch:initialized', (event) => {
         {{/if}}
       {{/each}}
     {{/if}}`;
-  Hawksearch.handlebars.registerPartial('custom-facet-checkbox-list', html);
+  HawkSearch.handlebars.registerPartial('custom-facet-checkbox-list', html);
 });
