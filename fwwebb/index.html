@@ -519,8 +519,6 @@ var page_type = 'Home';
     const searchResponse = event.detail;
 
     searchResponse.facets?.splice(1); // Temporarily hiding most facets for performance
-
-    console.log(searchResponse);
   });
 
   window.addEventListener('hawksearch:after-search-results-list-rendered', async (event) => {
