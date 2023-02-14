@@ -518,6 +518,10 @@ var page_type = 'Home';
   window.addEventListener('hawksearch:search-completed', (event) => {
     const searchResponse = event.detail;
 
+    const facetValueCount = searchResponse.facets.reduce((total, facet) => total += facet.values.length, 0);
+
+    console.log(`Facet value count: ${facetValueCount}`);
+
     searchResponse.facets?.splice(1); // Temporarily hiding most facets for performance
   });
 
