@@ -1,0 +1,14 @@
+:host {
+  --hawksearch-color-accent: #04a754;
+}
+
+.autocomplete {
+  z-index: 100;
+}
+
+@media (min-width: 1024px) {
+  .autocomplete {
+    left: auto;
+    width: 900px;
+  }
+}

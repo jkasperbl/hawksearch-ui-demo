@@ -16575,18 +16575,57 @@
                 content: "//preview-dev.hawksearch.net/elasticdemo",
               },
               css: {
-                customStyles:
-                  window.location.origin +
-                  window.location.pathname +
-                  "hawksearch.css",
+                customStyles: "hawksearch.css",
               },
             };
+
+            addEventListener("hawksearch:search-completed", (event) => {
+              const searchResponse = event.detail;
+              const facetsToDisplay = ["brand", "Color-property"];
+              const selectedValues = searchResponse.selectedFacets
+                ?.filter((f) => facetsToDisplay.includes(f.field))
+                .flatMap((f) => f.values)
+                .map((v) => v.title);
+
+              if (searchResponse.seo?.title) {
+                let title = searchResponse.seo?.title;
+
+                if (selectedValues?.length)
+                  title = `${title}: ${selectedValues.join(", ")}`;
+
+                document.title = title;
+              }
+
+              if (searchResponse.content?.heading) {
+                const h1Tag = document.querySelector("h1");
+
+                if (h1Tag) {
+                  let heading = searchResponse.content.heading;
+
+                  if (selectedValues?.length)
+                    heading = `${heading}: ${selectedValues.join(", ")}`;
+
+                  h1Tag.innerHTML = heading;
+                  h1Tag.style.display = 'block';
+                }
+              }
+            });
+
+            document.addEventListener("readystatechange", (event) => {
+              if (event.target.readyState !== "complete")
+                return;
+
+              const h1Tag = document.querySelector("h1");
+
+              if (h1Tag)
+                h1Tag.style.display = "none";
+            });
           </script>
           <script
             src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@2.0.0-beta.18/dist/index.js"
             defer
           ></script>
-          <hawksearch-search-results></hawksearch-search-results>
+          <hawksearch-landing-page url="/jkproducts"></hawksearch-landing-page>
         </section>
       </div>
       <div
