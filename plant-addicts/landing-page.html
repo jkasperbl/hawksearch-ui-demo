@@ -16587,16 +16587,7 @@
             addEventListener("hawksearch:search-completed", (event) => {
               const searchResponse = event.detail;
               
-              if (searchResponse.content?.heading) {
-                const h1Tag = document.querySelector("h1");
-
-                if (h1Tag) {
-                  let heading = searchResponse.content.heading;
-
-                  h1Tag.innerHTML = heading;
-                  h1Tag.style.display = 'block';
-                }
-              }
+              updateH1Tag(searchResponse);
             });
 
             document.addEventListener("readystatechange", (event) => {
@@ -16608,6 +16599,26 @@
               if (h1Tag)
                 h1Tag.style.display = "none";
             });
+
+            window.addEventListener('popstate', (event) => {
+              const state = event.state;
+              const searchResponse = state.searchResponse;
+          
+              updateH1Tag(state.searchResponse);
+          });
+
+          function updateH1Tag(searchResponse) {
+            if (searchResponse.content?.heading) {
+              const h1Tag = document.querySelector("h1");
+
+              if (h1Tag) {
+                let heading = searchResponse.content.heading;
+
+                h1Tag.innerHTML = heading;
+                h1Tag.style.display = 'block';
+              }
+            }
+          }
           </script>
           <script
             src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@2.0.0-beta.19/dist/index.js"
