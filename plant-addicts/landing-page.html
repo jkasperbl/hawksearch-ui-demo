@@ -13635,7 +13635,7 @@
       href="https://fonts.gstatic.com/"
       crossorigin=""
     />
-    
+
     <meta name="platform" content="bigcommerce.stencil" />
 
     <link
@@ -16568,7 +16568,7 @@
             var HawkSearch = HawkSearch || {};
 
             HawkSearch.config = {
-              clientId: "f51060e1c38446f0bacdf283390c37e8",
+              clientId: "bc841843aa494dea87f0a1ce48463fe3",
               searchUrl: window.location.pathname,
               urlPrefixes: {
                 assets: "//dev.hawksearch.net",
@@ -16579,52 +16579,74 @@
               },
               seo: {
                 title: {
-                  suffix: ' | Plant Addicts'
-                }
-              }
+                  suffix: " | Plant Addicts",
+                },
+              },
+              fieldMappings: {
+                searchResults: {
+                  imageUrl: "",
+                  title: "name",
+                  price: "price_retail",
+                  salePrice: "price_sale",
+                  type: "it",
+                  url: "url_detail",
+                },
+              },
+              components: {
+                "landing-page": {
+                  template: "landing-page-template",
+                },
+              },
             };
 
             addEventListener("hawksearch:search-completed", (event) => {
               const searchResponse = event.detail;
-              
+
               updateH1Tag(searchResponse);
             });
 
             document.addEventListener("readystatechange", (event) => {
-              if (event.target.readyState !== "complete")
-                return;
+              if (event.target.readyState !== "complete") return;
 
               const h1Tag = document.querySelector("h1");
 
-              if (h1Tag)
-                h1Tag.style.display = "none";
+              if (h1Tag) h1Tag.style.display = "none";
             });
 
-            window.addEventListener('popstate', (event) => {
+            window.addEventListener("popstate", (event) => {
               const state = event.state;
               const searchResponse = state.searchResponse;
-          
+
               updateH1Tag(state.searchResponse);
-          });
+            });
 
-          function updateH1Tag(searchResponse) {
-            if (searchResponse.content?.heading) {
-              const h1Tag = document.querySelector("h1");
+            function updateH1Tag(searchResponse) {
+              if (searchResponse.content?.heading) {
+                const h1Tag = document.querySelector("h1");
 
-              if (h1Tag) {
-                let heading = searchResponse.content.heading;
+                if (h1Tag) {
+                  let heading = searchResponse.content.heading;
 
-                h1Tag.innerHTML = heading;
-                h1Tag.style.display = 'block';
+                  h1Tag.innerHTML = heading;
+                  h1Tag.style.display = "block";
+                }
               }
             }
-          }
           </script>
           <script
             src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@2.0.0/dist/index.js"
             defer
           ></script>
-          <hawksearch-landing-page url="/jkproducts"></hawksearch-landing-page>
+          <hawksearch-landing-page url="/test-hawk-category/"></hawksearch-landing-page>
+          <template id="landing-page-template">
+            {{#if customLayout}} {{html customLayout}} {{else}} {{#if (and
+            content content.customHtml)}} {{html content.customHtml}} {{/if}}
+            <hawksearch-search-results
+              mode="landing-page"
+              url="{{url}}"
+            ></hawksearch-search-results>
+            {{/if}}
+          </template>
         </section>
       </div>
       <div
