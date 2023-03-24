@@ -16570,21 +16570,15 @@
             HawkSearch.config = {
               clientId: "bc841843aa494dea87f0a1ce48463fe3",
               searchUrl: window.location.pathname,
-              urlPrefixes: {
-                assets: "//dev.hawksearch.net",
-                content: "//preview-dev.hawksearch.net/elasticdemo",
-              },
               css: {
-                customStyles: "hawksearch.css",
-              },
-              seo: {
-                title: {
-                  suffix: " | Plant Addicts",
-                },
+                customStyles:
+                  window.location.origin +
+                  window.location.pathname.replace(/\/[^/]+.html/, '/') +
+                  "hawksearch.css",
               },
               fieldMappings: {
                 searchResults: {
-                  imageUrl: "",
+                  imageUrl: "image",
                   title: "name",
                   price: "price_retail",
                   salePrice: "price_sale",
@@ -16592,12 +16586,18 @@
                   url: "url_detail",
                 },
               },
-              components: {
-                "landing-page": {
-                  template: "landing-page-template",
+              seo: {
+                title: {
+                  suffix: " | Plant Addicts",
                 },
               },
-              shadowDom: false
+              components: {
+                "search-field": {
+                  strings: {
+                    placeholder: "Search for Plants...",
+                  },
+                },
+              },
             };
 
             addEventListener("hawksearch:search-completed", (event) => {

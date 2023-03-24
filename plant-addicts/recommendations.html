@@ -16568,63 +16568,43 @@
             var HawkSearch = HawkSearch || {};
 
             HawkSearch.config = {
-              clientId: "f51060e1c38446f0bacdf283390c37e8",
+              clientId: "bc841843aa494dea87f0a1ce48463fe3",
               searchUrl: window.location.pathname,
-              urlPrefixes: {
-                assets: "//dev.hawksearch.net",
-                content: "//preview-dev.hawksearch.net/elasticdemo",
-              },
               css: {
-                customStyles: "hawksearch.css",
+                customStyles:
+                  window.location.origin +
+                  window.location.pathname.replace(/\/[^/]+.html/, '/') +
+                  "hawksearch.css",
+              },
+              fieldMappings: {
+                searchResults: {
+                  imageUrl: "image",
+                  title: "name",
+                  price: "price_retail",
+                  salePrice: "price_sale",
+                  type: "it",
+                  url: "url_detail",
+                },
               },
               seo: {
                 title: {
-                  suffix: ' | Plant Addicts'
-                }
-              }
+                  suffix: " | Plant Addicts",
+                },
+              },
+              components: {
+                "search-field": {
+                  strings: {
+                    placeholder: "Search for Plants...",
+                  },
+                },
+              },
             };
-
-            addEventListener("hawksearch:search-completed", (event) => {
-              const searchResponse = event.detail;
-              
-              updateH1Tag(searchResponse);
-            });
-
-            document.addEventListener("readystatechange", (event) => {
-              if (event.target.readyState !== "complete")
-                return;
-
-              const h1Tag = document.querySelector("h1");
-
-              if (h1Tag)
-                h1Tag.style.display = "none";
-            });
-
-            window.addEventListener('popstate', (event) => {
-              const state = event.state;
-              const searchResponse = state.searchResponse;
-          
-              updateH1Tag(state.searchResponse);
-          });
-
-          function updateH1Tag(searchResponse) {
-            if (searchResponse.content?.heading) {
-              const h1Tag = document.querySelector("h1");
-
-              if (h1Tag) {
-                let heading = searchResponse.content.heading;
-
-                h1Tag.innerHTML = heading;
-                h1Tag.style.display = 'block';
-              }
-            }
-          }
           </script>
           <script
             src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@3.0.0/dist/index.js"
             defer
           ></script>
-          <hawksearch-recommendations widget-id="ac843f01-3391-41ee-9db2-36929a021622"></hawksearch-recommendations>
+          <hawksearch-recommendations widget-id="dee581a6-dc1a-40bc-9146-d08abdbe7405"></hawksearch-recommendations>
         </section>
       </div>
       <div

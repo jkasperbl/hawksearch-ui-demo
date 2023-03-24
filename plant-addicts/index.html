@@ -13635,7 +13635,7 @@
       href="https://fonts.gstatic.com/"
       crossorigin=""
     />
-    
+
     <meta name="platform" content="bigcommerce.stencil" />
 
     <link
@@ -16568,17 +16568,35 @@
             var HawkSearch = HawkSearch || {};
 
             HawkSearch.config = {
-              clientId: "f51060e1c38446f0bacdf283390c37e8",
+              clientId: "bc841843aa494dea87f0a1ce48463fe3",
               searchUrl: window.location.pathname,
-              urlPrefixes: {
-                assets: "//dev.hawksearch.net",
-                content: "//preview-dev.hawksearch.net/elasticdemo",
-              },
               css: {
                 customStyles:
                   window.location.origin +
-                  window.location.pathname +
+                  window.location.pathname.replace(/\/[^/]+.html/, '/') +
                   "hawksearch.css",
+              },
+              fieldMappings: {
+                searchResults: {
+                  imageUrl: "image",
+                  title: "name",
+                  price: "price_retail",
+                  salePrice: "price_sale",
+                  type: "it",
+                  url: "url_detail",
+                },
+              },
+              seo: {
+                title: {
+                  suffix: " | Plant Addicts",
+                },
+              },
+              components: {
+                "search-field": {
+                  strings: {
+                    placeholder: "Search for Plants...",
+                  },
+                },
               },
             };
           </script>
