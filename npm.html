@@ -13,7 +13,9 @@
 
         HawkSearch.config = {
           clientId: "f51060e1c38446f0bacdf283390c37e8",
-          searchUrl: window.location.pathname,
+          search: {
+            url: window.location.pathname
+          },
           urlPrefixes: {
             assets: "//dev.hawksearch.net",
             content: "//preview-dev.hawksearch.net/elasticdemo",

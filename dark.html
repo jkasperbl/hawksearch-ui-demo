@@ -13,7 +13,9 @@
 
         HawkSearch.config = {
           clientId: "f51060e1c38446f0bacdf283390c37e8",
-          searchUrl: window.location.pathname,
+          search: {
+            url: window.location.pathname
+          },
           css: {
             customStyles: ['dark.css']
           },
@@ -23,7 +25,7 @@
           }
         };
     </script>
-    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@3.0.0/dist/index.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@4.0.0-beta.0/dist/index.js" defer></script>
     <style type="text/css">
       @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
       

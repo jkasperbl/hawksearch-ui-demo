@@ -424,9 +424,9 @@ About
       urlPrefixes: {
         assets: "//dev.hawksearch.net",
       },
-      searchUrl: window.location.pathname,
-      fieldMappings: {
-        searchResults: {
+      search: {
+        url: window.location.pathname,
+        fieldMappings: {
             title: "title",
             imageUrl: "image_url",
             salePrice: "price",
@@ -434,7 +434,7 @@ About
             type: "type",
             description: "description"                 
         }
-      },
+      },      
       components: {
         'search-results-item': {
           template: 'search-results-item-template'
@@ -442,7 +442,7 @@ About
       }
     };
 </script>
-<script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@3.0.0/dist/index.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@4.0.0-beta.0/dist/index.js" defer></script>
 <hawksearch-search-results></hawksearch-search-results>
 <template id="search-results-item-template">
     <div class="search-results-list__item search-results-list__item--content">

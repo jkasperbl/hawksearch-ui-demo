@@ -1765,12 +1765,9 @@ var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_ur
 
 	HawkSearch.config = {
 		clientId: "2f49d01b767143fe9fda7c2b0cc58c2a",
-		searchUrl: window.location.pathname, // John, set this value to '/search' instead
-		urlPrefixes: {
-			assets: "//dev.hawksearch.net"
-		},
-		fieldMappings: {
-			searchResults: {
+		search: {
+			url: window.location.pathname,
+			fieldMappings: {
 				title: "name",
 				imageUrl: "image",
 				salePrice: "price",
@@ -1779,9 +1776,12 @@ var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_ur
 				description: "meta_description"
 			}
 		},
+		urlPrefixes: {
+			assets: "//dev.hawksearch.net"
+		}
 	};
 </script>
-<script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@3.0.0/dist/index.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@4.0.0-beta.0/dist/index.js" defer></script>
 <hawksearch-search-field></hawksearch-search-field>
 <p></p>
 <hawksearch-search-results></hawksearch-search-results>

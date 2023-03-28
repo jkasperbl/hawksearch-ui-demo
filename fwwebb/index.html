@@ -56,13 +56,15 @@ var ecommpagetype = "general";
 
   HawkSearch.config = {
     clientId: "3c6dd3cf4b824a869ec3cdb3cf1dbf47",
-    searchUrl: window.location.pathname,
-    searchResultsFieldMappings: {
-      title: 'description'
-    },
-    itemTypes: {
-      default: 'product'
-    },
+    search: {
+      url: window.location.pathname,
+      fieldMappings: {
+        title: 'description'
+      },
+      itemTypes: {
+        default: 'product'
+      }
+    },    
     components: {
       'search-results-item': {
         template: 'search-results-item-template'
@@ -70,7 +72,7 @@ var ecommpagetype = "general";
     }
   };
 </script>
-<script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@3.0.0/dist/index.js" defer></script>	
+<script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@4.0.0-beta.0/dist/index.js" defer></script>	
 	</head>
 <body><div><!-- #BeginLibraryItem "/Library/fwwebb-nav.lbi" --><header> 
   <!--TOP-NAV-->
