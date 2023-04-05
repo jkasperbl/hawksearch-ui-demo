@@ -1,0 +1,27 @@
+{
+    "arrowParens": "always",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "importOrder": ["^@(?:assets|components|configuration|helpers|models|services)", "^[./]"],
+    "importOrderParserPlugins": ["typescript", "decorators-legacy"],
+    "jsxSingleQuote": false,
+    "printWidth": 160,
+    "proseWrap": "preserve",
+    "quoteProps": "consistent",
+    "semi": true,
+    "singleAttributePerLine": false,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "none",
+    "overrides": [
+        {
+            "files": "*.hbs",
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ]
+}
