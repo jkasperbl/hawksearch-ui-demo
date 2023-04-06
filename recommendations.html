@@ -12,9 +12,6 @@
 
         HawkSearch.config = {
           clientId: "f51060e1c38446f0bacdf283390c37e8",
-          search: {
-            url: ''
-          },
           urlPrefixes: {
             assets: "//dev.hawksearch.net",
             content: "//preview-dev.hawksearch.net/elasticdemo",
@@ -33,18 +30,12 @@
         min-width: 340px;
         max-width: 1280px;
       }
-
-      hawksearch-search-field {
-        display: block;
-        margin: 0 0 30px 0;
-      }
     </style>
   </head>
 
   <body>
     <div class="layout-container">
-      <h1>HawkSearch Handlebars UI Demo</h1>
-      <hawksearch-search-field></hawksearch-search-field>
+      <h1>HawkSearch Handlebars UI Demo (Recommendations)</h1>
       <hawksearch-recommendations widget-id="193db69d-0d98-4dd2-b229-f1c168c84583" item-id="Item_170960"></hawksearch-recommendations>
     </div>
   </body>
