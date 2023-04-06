@@ -6,12 +6,20 @@
 
             HawkSearch.config = {
                 clientId: 'bc841843aa494dea87f0a1ce48463fe3',
+                autocomplete: {
+                    fieldMappings: {
+                        price: 'price_retail',
+                        rating: 'rating',
+                        salePrice: 'price_sale'
+                    }
+                },
                 search: {
                     url: window.location.pathname,
                     fieldMappings: {
                         imageUrl: 'image',
                         title: 'name',
                         price: 'price_retail',
+                        rating: 'rating',
                         salePrice: 'price_sale',
                         type: 'it',
                         url: 'url_detail'
