@@ -15474,12 +15474,70 @@
                                     strings: {
                                         placeholder: 'Search for Plants...'
                                     }
+                                },
+                                'search-results': {
+                                    template: 'hawksearch-search-results-template'
                                 }
                             }
                         };
+
+                        addEventListener('hawksearch:search-completed', (event) => {
+                            const component = document.querySelector('hawksearch-search-results, hawksearch-landing-page');
+                            
+                            if (!component) {
+                                return;
+                            }
+
+                            const position = component.getBoundingClientRect().top;
+
+                            if (position < 0) {
+                                component.scrollIntoView();
+                            }
+                        });
                     </script>
                     <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@4.0.1/dist/index.js" defer></script>
-                    <hawksearch-recommendations widget-id="dee581a6-dc1a-40bc-9146-d08abdbe7405"></hawksearch-recommendations>
+                    <h2>Companion Plants</h2>
+                    <hawksearch-recommendations widget-id="dee581a6-dc1a-40bc-9146-d08abdbe7405" item-id="4929"></hawksearch-recommendations>
+                    <template id="hawksearch-search-results-template">
+                        <hawksearch-modified-query></hawksearch-modified-query>
+                        <hawksearch-query-suggestions></hawksearch-query-suggestions>
+                        <div class="row">
+                            <div class="column column--12 column-md--4">
+                                <hawksearch-content-zone name="LeftTop"></hawksearch-content-zone>
+                                <hawksearch-facets-list></hawksearch-facets-list>
+                                <hawksearch-content-zone name="LeftBottom"></hawksearch-content-zone>
+                            </div>
+                            <div class="column column--12 column-md--8">
+                                <hawksearch-content-zone name="Top"></hawksearch-content-zone>
+                                <hawksearch-content-zone name="Top2"></hawksearch-content-zone>
+                                <hawksearch-tabs></hawksearch-tabs>
+                                <hawksearch-selected-facets></hawksearch-selected-facets>
+                                <div class="row">
+                                    <div class="column column--12 column-sm--6 flex-vertical-sm-center">
+                                        <hawksearch-pagination></hawksearch-pagination>
+                                    </div>
+                                    <div class="column column--12 column-md--6">
+                                        <div class="row row--tight">
+                                            <div class="column column--12 column-sm--6 flex-vertical-sm-center">
+                                                <hawksearch-page-size></hawksearch-page-size>
+                                            </div>
+                                            <div class="column column--12 column-sm--6 flex-vertical-sm-center">
+                                                <hawksearch-sorting></hawksearch-sorting>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hawksearch-search-results-list></hawksearch-search-results-list>
+                                <div class="row">
+                                    <div class="column column--12 column-sm--6 flex-vertical-sm-center">
+                                        <hawksearch-pagination></hawksearch-pagination>
+                                    </div>
+                                </div>
+                                <hawksearch-content-zone name="Bottom"></hawksearch-content-zone>
+                                <hawksearch-content-zone name="Bottom2"></hawksearch-content-zone>
+                            </div>
+                        </div>
+                    </template>
                 </section>
             </div>
             <div id="modal" class="modal" data-reveal="" data-prevent-quick-search-close="">
