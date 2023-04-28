@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HawkSearch Handlebars UI Demo (Variants)</title>
+        <meta name="description" content="This is a demo of the HawkSearch Handlebars UI" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <link
+            href="https://uploads-ssl.webflow.com/616ef101d9f2a3350a5daaf5/617a70019e3990dcdc313a53_favico%2032x32px.png"
+            rel="shortcut icon"
+            type="image/x-icon"
+        />
+        <link href="https://uploads-ssl.webflow.com/616ef101d9f2a3350a5daaf5/617a7005e122ca51ac06961e_webclip%20256x256px.png" rel="apple-touch-icon" />
+        <script type="text/javascript">
+            var HawkSearch = HawkSearch || {};
+
+            HawkSearch.config = {
+                clientId: 'a58be41172b941009f9f2836366268ce',
+                urlPrefixes: {
+                    assets: '//dev.hawksearch.net',
+                    content: '//preview-dev.hawksearch.net/elasticdemo'
+                },
+                autocomplete: {
+                    recommendationsEnabled: true
+                },
+                search: {
+                    url: window.location.pathname,
+                    itemTypes: {
+                        default: 'product'
+                    }
+                },
+                fieldMappings: {
+                    price: 'price_retail',
+                    salePrice: 'price_sale'
+                },
+                variants: {
+                    fieldMappings: {
+                        id: 'unique_id',
+                        price: 'price_retail',
+                        salePrice: 'sale_price'
+                    }
+                }
+            };
+        </script>
+        <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@5.0.0-beta.1/dist/index.js" defer></script>
+        <style type="text/css">
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+            }
+
+            .layout-container {
+                margin: 0 auto;
+                min-width: 340px;
+                max-width: 1280px;
+            }
+
+            hawksearch-search-field {
+                display: block;
+                margin: 0 0 30px 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="layout-container">
+            <h1>HawkSearch Handlebars UI Demo (Variants)</h1>
+            <hawksearch-search-field></hawksearch-search-field>
+            <hawksearch-search-results></hawksearch-search-results>
+            <hawksearch-recommendations widget-id="ae13755e-dce6-4329-b14a-0f582f3e5503"></hawksearch-recommendations>
+        </div>
+    </body>
+</html>
