@@ -16,7 +16,7 @@
             var HawkSearch = HawkSearch || {};
 
             HawkSearch.config = {
-                clientId: 'a58be41172b941009f9f2836366268ce',
+                clientId: 'eaf9b58bd53c4aa4ab9f3f8ebf45591f',
                 urlPrefixes: {
                     assets: '//dev.hawksearch.net',
                     content: '//preview-dev.hawksearch.net/elasticdemo'
@@ -31,14 +31,17 @@
                     }
                 },
                 fieldMappings: {
-                    price: 'price_retail',
-                    salePrice: 'price_sale'
+                    description: 'product_description',
+                    imageUrl: 'product_image_file_1',
+                    title: 'product_name'
                 },
                 variants: {
                     fieldMappings: {
-                        id: 'unique_id',
-                        price: 'price_retail',
-                        salePrice: 'sale_price'
+                        id: 'sku_id',
+                        color: {
+                            title: 'lens_color',
+                            hex: 'lens_color'
+                        }
                     }
                 }
             };
