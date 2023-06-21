@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HawkSearch Handlebars UI Demo</title>
+        <meta name="description" content="This is a demo of the HawkSearch Handlebars UI" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            href="https://uploads-ssl.webflow.com/616ef101d9f2a3350a5daaf5/617a70019e3990dcdc313a53_favico%2032x32px.png"
+            rel="shortcut icon"
+            type="image/x-icon"
+        />
+        <link href="https://uploads-ssl.webflow.com/616ef101d9f2a3350a5daaf5/617a7005e122ca51ac06961e_webclip%20256x256px.png" rel="apple-touch-icon" />
+        <script
+            type="module"
+            src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@6.0.0-beta.0/dist/hawksearch-handlebars-ui.min.js"
+        ></script>
+        <script type="text/javascript">
+            addEventListener('hawksearch:loaded', () => {
+                HawkSearch.init({
+                    clientId: '3c6dd3cf4b824a869ec3cdb3cf1dbf47',
+                    fieldMappings: {
+                        title: 'description'
+                    },
+                    search: {
+                        url: window.location.pathname,
+                        itemTypes: {
+                            default: 'product'
+                        }
+                    },
+                    components: {
+                        'search-results-item': {
+                            template: 'search-results-item-template'
+                        }
+                    }
+                });
+            });
+
+            addEventListener('hawksearch:search-completed', (event) => {
+                const searchResponse = event.detail;
+
+                const facetValueCount = searchResponse.facets.reduce((total, facet) => (total += facet.values.length), 0);
+
+                console.log(`Facet value count: ${facetValueCount}`);
+
+                searchResponse.facets?.splice(5); // Temporarily hiding most facets for performance
+            });
+
+            addEventListener('hawksearch:after-search-results-list-rendered', async (event) => {
+                const productIds = HawkSearch.searchResponse?.results?.map((r) => r.id);
+
+                if (!productIds?.length) {
+                    return;
+                }
+
+                const response = await fetch('products.json');
+                const products = await response.json();
+                const component = event.detail.component;
+                const itemComponents = component.rootElement.querySelectorAll('hawksearch-search-results-item');
+
+                itemComponents.forEach((i) => {
+                    i.data.remotePrice = products?.find((p) => p.id == i.data.id)?.price;
+
+                    i.render();
+                });
+            });
+        </script>
+        <script id="search-results-item-template" type="text/x-handlebars-template">
+          <div class="recommendations__item">
+            {{#if pinned}}
+                <span class="recommendations__item__pin">
+                    <hawksearch-icon name="star"></hawksearch-icon>
+                </span>
+            {{/if}}
+            {{#if (lt salePrice price)}}
+                <span class="recommendations__item__sale-indicator">{{strings.sale}}</span>
+            {{/if}}
+            <a hawksearch-link href="{{url}}" class="recommendations__item__image" aria-label="{{title}}">
+                <img hawksearch-image src="{{imageUrl}}" alt="" />
+            </a>
+            <div class="recommendations__item__title">
+                <a hawksearch-link href="{{url}}">{{title}}</a>
+            </div>
+            {{#unless (eq remotePrice undefined)}}
+                <div class="recommendations__item__price" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+                  <span class="recommendations__item__price-__current" itemprop="price">{{currency remotePrice}}</span>
+                </div>
+            {{/unless}}
+          </div>
+        </script>
+        <style type="text/css">
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+            }
+
+            .layout-container {
+                margin: 0 auto;
+                min-width: 340px;
+                max-width: 1280px;
+            }
+
+            hawksearch-search-field {
+                display: block;
+                margin: 0 0 30px 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="layout-container">
+            <h1>HawkSearch Handlebars UI Demo</h1>
+            <hawksearch-search-field></hawksearch-search-field>
+            <hawksearch-search-results></hawksearch-search-results>
+        </div>
+    </body>
+</html>

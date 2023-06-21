@@ -15437,42 +15437,43 @@
 
                 <section class="page">
                     <h1 class="page-heading">Search results</h1>
+                    <script type="module" src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@6.0.0-beta.0/dist/hawksearch-handlebars-ui.min.js"></script>
                     <script type="text/javascript">
-                        var HawkSearch = HawkSearch || {};
-
-                        HawkSearch.config = {
-                            clientId: 'bc841843aa494dea87f0a1ce48463fe3',
-                            fieldMappings: {
-                                imageUrl: 'image',
-                                title: 'name',
-                                price: 'price_retail',
-                                rating: 'rating',
-                                salePrice: 'price_sale',
-                                type: 'it',
-                                url: 'url_detail'
-                            },
-                            search: {
-                                url: window.location.pathname
-                            },
-                            css: {
-                                customStyles: window.location.origin + window.location.pathname.replace(/\/[^/]+.html/, '/') + 'hawksearch.css'
-                            },
-                            seo: {
-                                title: {
-                                    suffix: ' | Plant Addicts'
-                                }
-                            },
-                            components: {
-                                'search-field': {
-                                    strings: {
-                                        placeholder: 'Search for Plants...'
+                        addEventListener('hawksearch:loaded', () => {
+                            HawkSearch.init({
+                                clientId: 'bc841843aa494dea87f0a1ce48463fe3',
+                                fieldMappings: {
+                                    imageUrl: 'image',
+                                    title: 'name',
+                                    price: 'price_retail',
+                                    rating: 'rating',
+                                    salePrice: 'price_sale',
+                                    type: 'it',
+                                    url: 'url_detail'
+                                },
+                                search: {
+                                    url: window.location.pathname
+                                },
+                                css: {
+                                    customStyles: window.location.origin + window.location.pathname.replace(/\/[^/]+.html/, '/') + 'hawksearch.css'
+                                },
+                                seo: {
+                                    title: {
+                                        suffix: ' | Plant Addicts'
                                     }
                                 },
-                                'search-results': {
-                                    template: 'hawksearch-search-results-template'
+                                components: {
+                                    'search-field': {
+                                        strings: {
+                                            placeholder: 'Search for Plants...'
+                                        }
+                                    },
+                                    'search-results': {
+                                        template: 'hawksearch-search-results-template'
+                                    }
                                 }
-                            }
-                        };
+                            });
+                        });
 
                         addEventListener('hawksearch:search-completed', (event) => {
                             const component = document.querySelector('hawksearch-search-results, hawksearch-landing-page');
@@ -15488,7 +15489,6 @@
                             }
                         });
                     </script>
-                    <script src="//cdn.jsdelivr.net/npm/@bridgeline-digital/hawksearch-handlebars-ui@5.0.1/dist/index.js" defer></script>
                     <hawksearch-search-results></hawksearch-search-results>
                     <template id="hawksearch-search-results-template">
                         <hawksearch-modified-query></hawksearch-modified-query>
